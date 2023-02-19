@@ -1,0 +1,1 @@
+package org.opentutorials.javatutorials.interfaces.example1;
