@@ -1,6 +1,7 @@
     package com.example.SpringJPA;
 
     import com.example.SpringJPA.entity.Member;
+    import com.example.SpringJPA.entity.MemberType;
 
     import javax.persistence.EntityManager;
     import javax.persistence.EntityManagerFactory;
@@ -22,6 +23,7 @@
                 Member member = new Member();
                 member.setId(100L);
                 member.setName("안녕하세요");
+                member.setMemberType(MemberType.USER);
                 //맴버 객체를 저장
                 //실제로 .set은 잘 안쓰지만  헬로 난이도라서 여기서 그냥 일단 쓴다.
 
