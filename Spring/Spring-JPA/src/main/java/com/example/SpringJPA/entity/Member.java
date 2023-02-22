@@ -11,6 +11,13 @@ import javax.xml.crypto.Data;
     private Long id;
     @Column(name = "USERNAME")//
     private String name;
+    @ManyToMany(fetch = FetchType.LAZY)//지연 로딩 현업에서는 전부다 LAZY로 쓰는걸 권장 한다 꼭필요할때만 커리를 실제 날리는 시점에서 원하는걸 미리 최적화 해서 가저오는 방법이있는대 그때 써야한다
+    @JoinColumn(name = "TEAM_ID")
+  private Team team;
+
+   // @Column(name = "TRAM ID")
+
+    //private Long teamId;
 @Enumerated(EnumType.STRING)//현업에서는 무조건 스트링을 써야한다 기본값이 ORDINAL 이다 맴버 타입이 안꼬이게 막아주는 이유 이기 때문이다
     private MemberType memberType;
     @Temporal(TemporalType.TIMESTAMP)//날짜 시간 매핑

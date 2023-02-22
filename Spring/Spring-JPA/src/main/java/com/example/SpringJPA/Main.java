@@ -2,11 +2,13 @@
 
     import com.example.SpringJPA.entity.Member;
     import com.example.SpringJPA.entity.MemberType;
+    import com.example.SpringJPA.entity.Team;
 
     import javax.persistence.EntityManager;
     import javax.persistence.EntityManagerFactory;
     import javax.persistence.EntityTransaction;
     import javax.persistence.Persistence;
+    import java.util.List;
 
     public class Main {
 
@@ -20,6 +22,32 @@
 
 
             try {
+
+
+                //팀저장
+                Team team = new Team();
+                team.setName("Team");
+                em.persist(team);
+
+                //회원 저장
+                Member member = new Member();
+                member.setName("member1");
+                member.setTeam(team..getId());
+                em.persist(member);
+                //
+                    em.clear();
+                    em.flush();
+                //조회
+                Member findMember = em.find(Member.class,member.getId());
+                Long teamId = findMember.getTeam();
+                List<Member> members = findMember.getMembers();
+                for (Member member1 : members) {
+                    System.out.println("member1 =" + member1);
+                }//양방향 역방향으로 조회를 뿌리는것
+
+                //팀원 조회     연간관계가 없음
+               Team findTeam = em.find(Team.class, teamId)
+
                 Member member = new Member();
                 member.setId(100L);
                 member.setName("안녕하세요");
