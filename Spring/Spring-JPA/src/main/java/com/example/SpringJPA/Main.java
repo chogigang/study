@@ -39,6 +39,14 @@
                     em.flush();
                 //조회
                 Member findMember = em.find(Member.class,member.getId());
+                em.detach(findMember);//이녀석을 더이상 영속성 관리를 안하겠다는 것 db에 업데이트도 안됨
+                em.clear();//준 영속성 관리 실전에서는 이거때문에 골탕 먹음 실전에서는 LAZY를 쓰는대 지연로딩이 안됨
+
+
+
+
+                findMember.setName("T아카데미");//스냅샷
+
                 Long teamId = findMember.getTeam();
                 List<Member> members = findMember.getMembers();
                 for (Member member1 : members) {
