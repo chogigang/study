@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 //스프링 프레임워크는 그러면 "어? 컴포넌트가 보이네? 여기다가 마리오 게임 인스턴스 만들게요" 할것이다.
 public class MarioGame implements GamingConsole {
 
-    @Override
+    @Override//오버라이딩
     public  void up() {
         System.out.println("jump");
     }
