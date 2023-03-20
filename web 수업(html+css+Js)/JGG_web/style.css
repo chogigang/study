@@ -1,0 +1,62 @@
+h1{
+    font-size: 100px;
+    color: blue;
+    text-align: center;/*정렬*/
+       }
+
+       a{   
+            color: red;
+            text-decoration: none; /*텍스트를 꾸미는 옵션 non은 아무옵션도 사용안할때 사용*/
+            text-align: center;
+        }
+
+#num2{
+    color: gold;
+}
+
+
+.fs{
+    font-size: 30px;
+}
+
+
+
+
+/* 클래스는 . 찍고 이름을 작성해야합니다. 
+    하나의 태그에 다수의 클래스 이름을 적용할수 있습니다.
+
+id => #
+
+우선 순위 순서는
+1. #아이디
+2. .클래스명
+3.  태그
+
+
+*/
+
+
+/* 
+css
+html 문서 안에 <style></style> 안에 작석합니다
+
+외부 문서 에서 **.css 를 만들어서 사용 주로 문서의 내용이 많을시에 사용
+<link rel="stylesheet" href=""> 라는 문구가 들어갑니다 
+
+style 태그안에 a 태그 안에있는 것은 Selector 선택자이다.
+
+{} 선언 블록안에 선언 ex)color:red; 
+속성값 안에는 ;를 선언하는게 중요하다 10번째 속성값은 ;를 스킵할수 있지만 그냥 ;붙이는게 좋다.
+ex) p{color:red; padding:5px;}
+
+
+각 태그들은 3가지 요소를 가지고있다
+
+h1      블록 요소 그라인을 그냥 혼자 사용
+a       인라인 요소      블록 요소가없는 곳에  text-align: center; 같은것을 사용하면 사용안됨
+img      둘의 공통을 가진것이 인라인-블록 
+
+
+외부에서 파일을 가져올려면
+ <link rel="stylesheet" href="">를 사용한다.
+ */

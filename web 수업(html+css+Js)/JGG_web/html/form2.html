@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ridio form</title>
+</head>
+
+
+<body>
+    <form action="http://127.0.0.1:5500/order.php"method>
+    <p>
+    <h1>색상</h1>
+   붉은색 <input type="radio" name="color" value="red">
+    검은색<input type="radio" name="color" value= "black">
+    파란색<input type="radio" name="color"  value="blue">
+</p>
+
+<p>
+    <h1>사이즈</h1>
+    95<input type="checkbox" name="size" value="95">
+    100<input type="checkbox" name="size" value="100">
+    105<input type="checkbox" name="size" value="105">
+</p>
+<input type="submit" >
+</form>
+
+</body>
+</html>
+
+<!--
+ radio 는 하나만 선택가능
+ checkbox 다중 선택 가능
+
+method get = ?뒤에 정보를 같이 가져가는 옵션 아무 설정 안하면 이것이 디폴트
+method post =? 뒤에 정보를 노출 안하고 몰래 서버단에 전송 주로 로그인을 구현할때 사용
+
+
+ -->
