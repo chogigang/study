@@ -136,12 +136,6 @@ class ListIterator {
     public void remove() {
             ArrayLIst.this.remove(nextIndex-1);
             nextIndex--;
+     }
     }
-}
-
-
-
-
-
-
 }
