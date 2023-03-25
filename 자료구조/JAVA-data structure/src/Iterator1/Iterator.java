@@ -8,9 +8,9 @@ import java.util.*;
 public class Iterator {
     public static void main(String[] args) {
       //  ArrayList c = new ArrayList();
-   //   HashSet list = new HashSet(); //set은  Collection 의 자손 하지만 get이라는 자손은 없다. 그래서 밑  while문은 작동하지만 iterator를 사용하지 않는 for문은 작동하지 않는다.
-       Collection c = new  ArrayList(); //참조 변수는 변하지 않았기때문에 HashSet()을 쓰든 TreeSet() 을 쓰든 아래 코드들은 상관안써도 된다.
-    //앞 참조 변수를   HashSet, TreeSet,ArrayList 같은걸 하면 변경할때 또 나중에 일일이 밑에 값을 수정해야하는 번거로움이 있다.
+   //   Set.HashSet.HashSet list = new Set.HashSet.HashSet(); //set은  Collection 의 자손 하지만 get이라는 자손은 없다. 그래서 밑  while문은 작동하지만 iterator를 사용하지 않는 for문은 작동하지 않는다.
+       Collection c = new  ArrayList(); //참조 변수는 변하지 않았기때문에 Set.HashSet.HashSet()을 쓰든 TreeSet() 을 쓰든 아래 코드들은 상관안써도 된다.
+    //앞 참조 변수를   Set.HashSet.HashSet, TreeSet,ArrayList 같은걸 하면 변경할때 또 나중에 일일이 밑에 값을 수정해야하는 번거로움이 있다.
 
          c.add("1");
          c.add("2");
