@@ -1,5 +1,5 @@
 print(2+3)
-print("오호호홓")
+print("원투원투")
 print(2+3,"안녕")
 a = 3+3
 print(a)
