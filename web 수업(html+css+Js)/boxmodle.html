@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box modle</title>
+<style>
+    div{
+        width: 300px;       height: 200px;
+        font-size: 30px;
+        border:3px solid red;
+        padding-top : 30px;
+        padding-left:  30px;
+        padding-bottom :20px ;
+        margin-top: 20px; 
+        margin-bottom:15px; 
+        margin-left: -8px;
+    }
+
+span{
+    /* width: 300px; height: 200px; */
+    font-size: 30px;
+        border:3px solid red;
+        padding: 10px 50px ; /*   2개를 작성하면 첫번째는  상하 뒤는 좌우 (3개는 1.상2.좌우 3.하)  4개를 작성하면 시계 방향으로 top -> right -> bottom -> left 순*/
+        
+        margin: 10px;
+}
+
+</style>
+
+</head>
+<body>
+    <div> 요소의 컨텐츠 </div>
+    <span>인라인</span>
+</body>
+</html>
+
+<!--
+박스모델
+
+브라우저가 요소를 렌더링 할 때 각각의 요소는 기본적으로 사각형 형태로 영역을 차지하게 된다. 이 영역을 '박스' 라고 표현하며
+CSS는 박스의 크기, 위치,속성 을 결정할 수 있다.
+
+하나의 박스는 다음 네 개의 영역으로 구성된다.
+콘텐츠 영역      width,height
+안쪽 여백        
+경계선(테두리)
+바깥쪽 여백
+
+인라인 마진은 상 하 margin이 적용불가 하다
+
+-->
