@@ -29,4 +29,231 @@ int main()
  
  */
 
+//#include <iostream>
+//sing namespace std;
 
+//char main() {
+
+
+
+//}
+
+/*
+#include <iostream>
+
+using namespace std;
+
+void main() {
+	int a = 3;
+	int* pa = &a;
+
+	cout << pa << endl << *pa << endl;
+	cout << &a << endl << a << endl;
+
+
+}
+*/
+
+/*
+#include <iostream>
+
+using namespace std;
+
+class Cperson {
+public:
+	const char* m_Name; //const 상수  안붙여주면 
+	int m_Age;
+
+
+	void print() {
+		cout << "Name:" << m_Name << endl;
+		cout << "Age" << m_Age << endl;
+	}
+};
+void main() {
+	Cperson p[2];
+
+	p[0].m_Name = "Kim Do Hyung";
+	p[0].m_Age = 11;
+	p[0].print();
+
+
+	p[1].m_Name = "Kim Na In";
+	p[1].m_Age = 9;
+	p[1].print();
+
+
+
+
+}
+*/
+
+/*
+#include <iostream>
+
+using namespace std;
+int g_Arr[2][3];
+
+int(*func(int arg))[2][3]{
+for (int i = 0; i < 2; i++) 
+{
+	for (int j = 0; j < 3; j++)
+	{
+		g_Arr[i][j] = arg;
+	}
+	}
+return &g_Arr;
+}
+
+
+void main() {
+	cout << (*func(7))[0][0] << endl;
+	cout << (*func(7))[1][2] << endl;
+	
+
+}
+*/
+/*
+#include<iostream>
+using namespace std;
+
+
+typedef int GLOBAL_INT;
+
+void Func(){
+	typedef int LOCAL_INT;
+	LOCAL_INT i; //OK 한지역 에서 변수 지역변수
+}
+GLOBAL_INT g1; //OK
+
+//LOCAL_INT g2; //Error   지역변수범위에 넘어서서 선언했기때문에 오류 
+
+typedef int a;
+void main() {
+	a  b= 3;
+
+	cout << b << endl;
+}
+*/
+/*
+	#include<iostream>
+	using namespace std;
+
+
+	int ga;     //초기화
+	int gb = 1; //1초기화
+
+	void main() {
+	
+		int a;     //미정의 값 초기화
+	int b = 2; //2 초기화
+
+
+	cout << ga << endl;
+	cout << gb << endl;
+	cout << a << endl;
+	cout << b << endl;
+}
+*/
+
+/*
+#include<iostream>
+using namespace std;
+
+
+const int gc1; //Error
+const int gc2 = 1;
+
+
+	void main() {
+	const int c1 = 1;  //Error
+	c1 = 1;  //Error
+	
+	
+	
+	const int c2 = 2; //ok
+
+}
+*/
+
+//#include<iostream>
+//using namespace std;
+/*
+void main() {
+	const int arr1[3];  //Errpr
+
+	const int arr2[3] = { 1,2,3 };  //ok
+
+	arr2[0] = 7;  //Error
+}
+*/
+/*
+ void main() {
+	int a;
+
+	const int* cp;  //ok
+
+	cp = &a;
+	*cp = 1; //Error
+
+	a = 2;
+}
+*/
+/*
+void main() {
+	int a;
+
+	int* const cp; //Error
+	int* const cp = &a; //Ok
+	*cp = 1; //OK
+}
+*/
+
+/*
+ //자동 변수 지정자 auto
+void main() {
+	auto int a = 1; //자동 변수 지정자 auto
+
+}
+*/
+#include<iostream>
+using namespace std;
+/*
+void main() {
+	auto a = 1; //auto -> int 
+
+	cout << a << endl;
+
+
+
+}
+*/
+
+/*
+void main() {
+	auto a; //Compile Error
+	a = 1;
+
+}
+*/
+
+
+double Divide(int a, int b) {
+	return (double)a / b;
+
+}
+
+void main() {
+	auto r = Divide(1, 2); //auto -> double
+
+	cout << r << endl;
+
+}
+
+
+// 매개 변수의 auto 추론 실패
+double Divide(auto a, auto b)//Compile Error
+{
+	return (double)a / b;
+
+}

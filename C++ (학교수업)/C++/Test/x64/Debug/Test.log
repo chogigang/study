@@ -1,3 +1,5 @@
-﻿  Test1.cpp
-MSVCRTD.lib(exe_main.obj) : error LNK2019: main"int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ) 함수에서 참조되는 확인할 수 없는 외부 기호
-C:\Users\Lenovo\OneDrive\바탕 화면\학교 수업\C++ (학교수업)\C++\Test\x64\Debug\Test.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다.
+﻿  2023 03.16 쳅터2 메모.cpp
+  Test1.cpp
+C:\Users\Lenovo\OneDrive\바탕 화면\학교 수업\C++ (학교수업)\C++\Test\Test1.cpp(246,13): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+  코드를 생성하고 있습니다...
+  Test.vcxproj -> C:\Users\Lenovo\OneDrive\바탕 화면\학교 수업\C++ (학교수업)\C++\Test\x64\Debug\Test.exe
