@@ -216,8 +216,9 @@ void main() {
 
 }
 */
-#include<iostream>
+/*#include<iostream>
 using namespace std;
+*/
 /*
 void main() {
 	auto a = 1; //auto -> int 
@@ -237,7 +238,7 @@ void main() {
 }
 */
 
-
+/*
 double Divide(int a, int b) {
 	return (double)a / b;
 
@@ -249,11 +250,31 @@ void main() {
 	cout << r << endl;
 
 }
+*/
 
 
 // 매개 변수의 auto 추론 실패
+/*
 double Divide(auto a, auto b)//Compile Error
 {
 	return (double)a / b;
 
 }
+*/
+
+#include<iostream>
+using namespace std;
+
+
+int main() {
+	short a, b;
+
+	cout << "첫번째 값을 입력하세요" << endl;
+		cin >> a;
+	cout << "두번째 값을 입력하세요" <<
+		cin >> b;
+
+	cout << "더하기" << a + b << endl;
+
+}
+
