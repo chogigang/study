@@ -1,0 +1,283 @@
+연산자
+
+연산자는 피연산자에 적용되어 값을 도출하기 위한 연산 기호
+
+기능별 분류 : 산술 연산자,비교 연산자(관계 ), (논리,비트), 배열/포인터/클래스 사용을 위한 연산자
+
+형태별 분류 : 피연산자의 수로 분류, 단항 연산자/이항 연산자/삼항 연산자
+
+                                       ~3     /    3+3   /  1 ? 2 : 3
+
+대입 연산자
+
+a = b : a 에 b를 대입하고 b를 반환한다.
+
+
+나머지 연산자
+
+a%b : a를 b로 나눈 나머지를 반환한다.
+
+
+증감 연산자 
+
+전위형:++a,--a 증감 연산자가 피연산자 앞에 있다.
+후위형: a++,a--증감 연산자가 피연산자 뒤에 있다.
+
+
+void main() {
+
+	int a, b;
+
+
+	a = 1;
+	cout << a++ << endl; //2
+
+	a = 1;
+	b = ++a;
+	cout << b << endl; //2
+
+	a = 1;
+	cout << a++ << endl; //1
+
+	a = 1;
+	b = a++;
+
+	cout << b << endl; //1
+
+	a = 1;
+	++a;
+	cout << a << endl; //2
+
+	a = 1;
+	a++;
+	cout << a << endl; //2
+
+
+}
+
+
+비교 연산자
+void main() {
+	int a = 0;
+
+	if (a = 1) {  //조건식 안에 값이 1이든 -1이든 13이든 아무 수가 있으면 참 1, 값이 0이면 거짓 이다
+		cout << "a==1" << endl;
+	}
+	else
+	{
+		cout << "a !=1" << endl;
+	}
+
+
+}
+
+논리 연산자
+
+void main() {
+	int a = 0;
+
+	if (a = 1) {  //조건식 안에 값이 1이든 -1이든 13이든 아무 수가 있으면 참 1, 값이 0이면 거짓 이다
+		cout << "a==1" << endl;
+	}
+	else
+	{
+		cout << "a !=1" << endl;
+	}
+
+
+}
+
+
+AND 연산자
+
+a가 0이라면 b값에 상관없이 a&&b는 항상 0이다   
+a,b가 둘다 0이 아닐때 1을 출력한다
+
+int Func() {
+
+	cout << "Func" << endl;
+	return 1;
+
+}
+
+void main() {
+
+	if (0&& Func()) {
+		cout << "main" << endl;
+	}
+}
+
+
+
+OR연산자
+a 혹은 b 가 하나라도 0이 아닐경우 1을 출력
+
+
+
+비트 연산자
+
+
+
+반전 연산자  (~)
+
+void main() {
+	cout << ~13 << endl;  // 비트값  -1
+	cout << !0 << endl;  //논리 값 1
+
+}
+
+
+
+Xor 연산자 (^)
+
+a,b 값이 같을때 0을 출력 다를때 1을 출력
+
+void main() {
+	int a = 3;
+	int b = 7;
+
+	a = a ^ b;
+	b = a ^ b;
+	a = a ^ b;
+	cout << a << "" << b << endl;
+}
+
+
+비트 이동 연산자
+
+정수 타입 변수를 처 번째 피연산자로 취한 후 피연산자의 비트열 전체를왼쪽이나 오른쪽으로 두 번째 피연산자만큼 이동시키는 연산자
+
+<< 비트열을 N만큼 왼쪽으로 이동시킨다. 가장 왼쪽의 넘치는N개의 비트들은 버리고, 오른쪽에 새로 생기는 N개의 비트들은 모두 0으로 채웁니다.
+>> 비트열을 N만큼 오른쪽으로 이동시킨다. 가장 오른쪽의 넘치는 N개의 비트들은 버리고 ,왼쪽에 새로 생기는 N개의 비트들은 부호 비트가 존재할 경우 부호 비트로 채우고
+	부호 비트가 존재하지 않을 경우 0으로 채운다.
+
+
+
+	void main() {
+	char c = 1;
+
+	c = c << 7;
+	cout << +c << endl;
+
+	c = c >> 7;
+	cout << +c << endl;
+
+
+}
+*/
+
+/*
+void main() {
+	char c; //signed type
+	
+	c = 2;  //[0000,0010] 2
+	
+	c = c >> 1; // [0000,0001] 1
+	
+	cout << +c << endl;
+	
+	c = -126; //[1000,0010] -126
+	
+	c = c >> 1; // [1100,0001] -63
+	
+	cout << +c << endl;
+}
+
+*/
+/*
+	void main() {
+	unsigned char uc; //unsigned type
+
+	uc = 2; //[0000,0010] 2
+	uc = uc >> 1; //[0000,0001] 1
+	cout << +uc << endl;
+
+	uc = 130; //[1000,0010] 130
+	uc = uc >> 1; //[0100,0001] 65
+	cout << +uc << endl;
+}
+
+
+
+
+삼항 연산자
+
+  조건식? 식1 : 식2    =>     조건식?  참 : 거짓
+
+
+  int NOT(int arg) {
+	return arg ? 0 : 1;
+
+}
+
+void main() {
+	cout << NOT(3) << "" << NOT(0) << endl;
+}
+
+
+sizeof  저장한 타입의 크기를 도출할때 사용
+
+
+
+void main() {
+
+
+	cout << sizeof(char) << endl;//1
+	cout << sizeof(int) << endl;//4
+	cout << sizeof(double) << endl;//8
+
+
+
+	char c;
+	int i;
+	double d;
+	int arr[4];
+
+	cout << sizeof(c) << endl; //1
+	cout << sizeof(i) << endl;	//4
+	cout << sizeof(d) << endl;	//8
+	cout << sizeof(arr) << endl;//16
+}
+
+범위 연산자    이름 ::연산자
+
+
+ 
+
+1.(TYPE)식
+2.TYPE(식)
+3.static_cast<TYPE>(식)
+4.dynamin_cast<TYPE>(식)
+5.const_cast<TYPE>(식)
+6.reinterpret_cast<TYPE>(식)
+
+
+타입연산자
+
+식의 도출값을 TYPE 타입으로 강제 변환한다. 
+
+1.(TYPE)식
+2.TYPE(식)
+3.static_cast<TYPE>(식)
+4.dynamin_cast<TYPE>(식)
+5.const_cast<TYPE>(식)
+6.reinterpret_cast<TYPE>(식)
+
+
+void main() {
+
+	cout << fixed;
+	cout.precision(0);
+
+	int i - 3.141592; //3
+	float f = 67108870; //6710872
+
+	cout << i << "" << f << endl;
+
+}
+
+
+void main() {
+	cout << 1 / 2 << endl;  //0
+	cout << (double)1 / 2 << endl; //0.5
+}
