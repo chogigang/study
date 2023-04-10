@@ -13,14 +13,14 @@
         border: 2px solid red;
         width: 600px;
         /* height: 200px; */
-        overflow: hidden;
+        overflow: hidden; /* 자식의 float 를 사용해서 위치 크기 높이를 지정하면 부모의 크기도 지정해줄 필요없이 해주는 overflow 명령어*/
     }
     .child{
         background-color: gold;
         width: 200px;
         height: 400px;
         /* float: right; */
-         margin:auto 0;/*div 요소는 float 를 건들여서 중앙으로 이동 시키기보단 margin auto 0; 를 선언하면 부모 태그 크기 기준으로 중앙으로 모이게 된다.*/
+         margin:auto 0; /*div 요소는 float 를 건들여서 중앙으로 이동 시키기보단 margin auto 0; 를 선언하면 부모 태그 크기 기준으로 중앙으로 모이게 된다.*/
     
     }
 </style>
@@ -50,5 +50,5 @@
     그러나 자식의 높이가 변하면 부모의 높이도 같이 변한다.
     
     float 를 선언하면 부모의 높이,넓이를 무시하게 된다.
-    그러나 부모 태그가 overflow: hidden을 선언하면 자식 클래스가 커지면 자동적으로 같이 부모 태그가 같이 크기가 증가한다.
+    그러나 부모 태그가 overflow: hidden(높이)을 선언하면 자식 클래스가 커지면 자동적으로 같이 부모 태그가 같이 크기가 증가한다.
 -->

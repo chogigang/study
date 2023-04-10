@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position</title>
+<style>
+
+    .parent{
+            background-color: blue;
+            width: 600px;
+            height: 400px;
+            margin: 100px auto;
+            position: relative;
+        }
+    .child{
+            background-color: red;
+            width: 200px;
+            height: 100px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+    }
+    .child2{
+        background-color: red;
+            width: 200px;
+            height: 100px;
+            position: absolute;
+
+    }
+    .child3{
+        background-color: red;
+        width: 200px;
+        height: 100px;
+        position: absolute;
+        right: 0;
+        
+
+    }
+    .child4{
+        background-color: red;
+        width: 200px;
+        height: 100px;
+        position: absolute;
+        
+        bottom: 0;
+    }
+ .child5{
+    background-color: red;
+        width: 200px;
+        height: 100px;
+        position: absolute;
+        left: 33%;
+        bottom: 37%;
+
+    }
+.child6{
+    background-color: aqua;
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.child7{
+    background-color: aqua;
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    left: 100%;
+    /* transform: translate(-50%,-50%); */
+}
+</style>
+
+
+</head>
+<body>
+    <div class="parent">
+        <div class="child"></div>
+        <div class="child2"></div>
+        <div class="child3"></div>
+        <div class="child4"></div>
+        <div class="child5"></div>
+        <div class="child6"></div>
+        <div class="child7"></div>
+    </div>
+</body>
+</html>
+
+
+<!--
+    감싸는자 : 부모요소 Relative
+    감쌈을 당하는자 : 자식요소 Absolute
+
+
+-->
