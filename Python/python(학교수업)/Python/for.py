@@ -80,17 +80,17 @@
 #     except :
 #         print("에외가 발생")
     
-num = 0
-while True:
-    try: 
-        i = (input("더할 수를 적으시오 =를 적으면 종료"))
-        if i == '=' :
-            print(f"{num}\n종료") 
-            break
-        else:
-            num=num+int(i)
-    except: 
-        print("잘못 입력") 
+# num = 0
+# while True:
+#     try: 
+#         i = (input("더할 수를 적으시오 =를 적으면 종료"))
+#         if i == '=' :
+#             print(f"{num}\n종료") 
+#             break
+#         else:
+#             num=num+int(i)
+#     except: 
+#         print("잘못 입력") 
         
         
     
