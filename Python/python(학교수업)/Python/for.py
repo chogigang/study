@@ -96,3 +96,11 @@
     
 
 
+while True :
+    try:
+        a = int(input("나누기를 할 정수를 입력하세요:"))
+        b = int(input("나누어질 수를 입력하세요:"))
+        print(a/b)
+    except :
+        print("에외가 발생")
+    

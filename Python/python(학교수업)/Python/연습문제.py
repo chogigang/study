@@ -347,6 +347,7 @@ import random
 #     if(flag==True):
 #         print(f"소수인{num}을 찾았습니다. ")
 
+#사용자의 입력값이 소수인지 아니닌지 확인하는 코드를 작성하세요
 
 # num = int(input("정수를 입력하세요: "))
 # flage = True
@@ -360,7 +361,177 @@ import random
 #     print(f"입력한{num}은 소수가 아닙니다.")
 
 
+# num=0
+# for i in range (1,101):
+#     if(i%3==0):
+#         num=num+i
+    
+# print(num)
  
 
+#2번 문제 문자열을 입력받아 거꾸로 출력하는 함수를 작성하세요.
 
 
+# a =input("문자열을 입력하세요: ")
+
+# reversed_str = ''
+# for i in a:
+#     reversed_str = i + reversed_str
+    
+    
+# print(f"기본 문자열: {a}")
+# print(f"뒤집은 문자열: {reversed_str}")
+
+
+
+#3번 문제  두 개의 정수를 입력받아 덧셈, 뺄셈, 곱셈, 나눗셈 결과를 출력하는 함수를 작성하세요.
+
+
+# num1 = int(input("첫번째 정수 값을 입력하세요: "))
+# num2 = int(input("두번째 정수 값을 입력하세요: "))
+
+# print(f"두수의 합:{num1+num2}\n두수의차:{num1-num2}\n두수의곱은:{num1*num2}\n두수의나눗셈:{num1/num2}")
+
+
+#4번 문제 다음과 같은 문자열이 있을 때, 문자열에서 각 단어의 첫 글자를 대문자로 바꾸어 출력하는 함수를 작성하세요.
+
+# Text = input("영어단어 를 입력하세요: ")
+
+# print(Text.title())
+
+# size = 5  # 다이아몬드 크기
+
+# for i in range(size):
+#     print(" " * (size - i - 1) + "*" * (2 * i + 1))
+# for i in range(size - 2, -1, -1):
+#     print(" " * (size - i - 1) + "*" * (2 * i + 1))
+
+
+
+
+
+# 1번 문제 두 개의 정수를 입력받아 더한 값을 출력하는 코드를 작성하세요.
+
+
+
+
+# 1부터 10까지의 정수를 출력하는 코드를 작성하세요. (for문을 사용하세요)
+
+
+
+
+# 7번문제 for문과 if문을 사용하여, 1부터 100까지의 숫자 중에서 소수(약수가 1과 자기 자신밖에 없는 수)를 모두 출력하는 코드를 작성하세요.
+
+
+# for num in range(2,101):    
+#     flag =True
+#     for i in range(2,num):  
+#         if(num%i==0):
+#             flag =False
+#             break
+#     if(flag==True):
+#         print(f"소수인{num}을 찾았습니다. ")
+        
+# #사용자의 입력값이 소수인지 아니닌지 확인하는 코드를 작성하세요
+
+# num = int(input("숫자를 입력하세요: "))
+
+# num_t = True
+
+# for i in range(2,num):
+#     if num%i==0:
+#      num_t = False  
+# if(num_t==True):
+#     print("입력하신 값은 소수입니다. : ",num)
+# else:
+#     print("입력하신 값은 소수가 아닙니다.", num)
+
+
+#홀수인지 짝수인지 구별하는 코드를 작성해봅시다.
+
+
+# 2번 문제 사용자로부터 숫자를 입력받아, 그 숫자가 양수인지, 음수인지, 0인지를 판별하여 출력하는 코드를 작성하세요.
+
+#사용자로부터 세 개의 정수를 입력받아, 이 세 수 중 가장 작은 수를 출력하는 코드를 작성하세요
+
+# num1= int(input("첫번째 정수를 입력하세요: "))
+# num2= int(input("두번째 정수를 입력하세요: "))
+# num3= int(input("세번째 정수를 입력하세요: "))
+
+
+# if(num1<num2 and num1<num3):
+#     print(f"첫번째 값이{num1} 제일 작습니다")
+# elif(num2<num1 and num2<num3):
+#     print(f"두번째 값이{num2} 제일 작습니다.")
+# else:
+#     print(f"세번째 값이 제일 작습니다.")
+
+
+# 6번문제 random 모듈을 사용하여, 1부터 100까지의 숫자 중에서 무작위로 하나의 숫자를 선택하고, 사용자가 이 숫자를 맞출 수 있는 게임을 만드세요.
+
+# ran_val = random.randrange(1,101)
+
+# while(True):
+#     num = int(input("무작위 수를 맞춰 보세요 :"))
+#     if(num == ran_val):
+#         print("정답입니다!")
+#         break
+#     elif(num>ran_val):
+#         print("다운!")
+#     elif(num<ran_val):
+#         print("업!")
+
+# 다음 두 수를 입력받아서 두 수의 합과 차를 출력하는 코드를 작성하시오. (연산자)
+
+# num1= int(input("첫번째 값을 입력하세요: "))
+# num2= int(input("두번째 값을 입력하세요: "))
+
+# print(f"두 값의 합은 {num1+num2}")
+
+
+# 사용자로부터 나이를 입력받아 18세 이상이면 "성인입니다"를 출력하고, 18세 미만이면 "미성년자입니다"를 출력하는 코드를 작성하시오. (if문)
+
+# num1 = int(input("첫번째 값을 입력하세요: "))
+# if(num1>18):
+#     print("성인입니다. ")
+# else:
+#     print("미성년자입니다.")
+
+
+# # 1부터 10까지의 수 중 짝수만을 출력하는 코드를 작성하시오. (for문)
+# for i in range(1,11):
+#     if(i%2==0):
+#         print(f"짝수인 값{i}")
+
+
+
+# 사용자가 입력한 양수에 대해 1부터 해당 수까지의 합을 구하는 코드를 작성하시오. (while문)
+
+# num = int(input("값을 입력하세요: "))
+
+# sum = 0
+# i = 1
+# while i <= num:
+#     sum += i
+#     i += 1
+
+# print(f"입력한 값은 {num}이며, 해당 수까지의 합은 {sum}입니다.")
+
+
+
+# 사용자로부터 양수를 입력받아, 
+# 해당 숫자의 팩토리얼을 계산하는 코드를 작성하시오. 
+# 예를 들어, 사용자가 5를 입력하면 5! = 5 x 4 x 3 x 2 x 1 = 120이
+#  출력되어야 한다. 단, 입력한 수가 음수이면 "양수를 입력해주세요"라는
+#  메시지를 출력하고 다시 입력을 받아야 한다.
+
+num = int(input("값을 입력하세요: "))
+
+i = 1
+result = 1
+
+while i <= num:
+    result *= i
+    i += 1
+
+print(f"입력한 값은 {num}, 해당 값까지의 곱은 = {result}")
