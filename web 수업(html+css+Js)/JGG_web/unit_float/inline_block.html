@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inline block 요소 특징</title>
+<style>
+    body {  
+        color: red;
+    }
+    h1{
+        border: 3px   solid #000; /*border 경계선 명령어  solid(경계선) */
+        padding: 5px 20px ;
+        width :200px;
+        height: 200px;
+        display: inline-block;  /* 블록 요소를 다른 요소로 변경 할때 쓰는 명령어 */
+    }
+
+    a{
+        color : black;
+        text-decoration: none; /* 링크 밑줄 제거*/
+        width: 200;   /*a 태그는 높이 넓이 안먹힘 */
+        height: 300px;
+        border: 1px  solid red;
+        margin: 100px; /* 이친구는 먹는다*/
+
+    }
+
+    img{
+        width: 100px;
+        height: 200px;
+        display: block;
+    }
+</style>
+
+</head>
+<body>
+    
+<h1> 검색 사이트</h1>
+
+<a href="http://www.naver.com">네이버</a>
+<a href="http://www.google.com">구글</a>
+<a href="http://www.daum.net">다음</a>
+
+<img src="https://picsum.photos/id/237/200/300" alt="">
+<img src="https://picsum.photos/200" alt="">
+</body>
+</html>
+<!--
+    상속을 안받는 거의 유일한 태그는 <a> 태그
+        magin 태그는 먹지만 다른 높이,넓이 태그는 명령을 안받는다 이러한 이유는 a태그는 블록 요소 이기때문이다.
+
+        img 태그는 인라인 블록 요소 이기때문에 다 가능하다.
+
+        display :inline   블록 요소를 인라인 으로 변경하는 명령어   혹은 inline-block 
+
+    float (표류하다.)
+        자리 배치를 할때 주로 사용하는 명령어  css포지셔닝 엘리먼트 수평 정렬 할때 사용한다.
+        float:left ,float:right
+
+    -->

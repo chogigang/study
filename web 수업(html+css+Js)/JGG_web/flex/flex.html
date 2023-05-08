@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex box basic</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .container{
+            background-color: #ccc;
+            height: 100vh;
+            display: flex;
+            /* flex-direction: row; */
+            /* flex-direction: column; */
+            /* flex-wrap: wrap; */
+            /* justify-content: center;
+            align-items: center; */
+
+        }
+        .item{
+            background-color: gold;
+            border: 2px solid #000;
+            flex-basis: 0;
+            /* flex-grow: 1; */
+
+        }
+        .item:nth-child(odd){
+            background-color: orangered;
+        }
+        .item:nth-child(1){
+            /* flex-grow:1; */
+            flex: 1;
+        }
+        .item:nth-child(2){
+            /* flex-grow:2; */
+            order: 2;
+            flex: 2;
+        }
+        .item:nth-child(3){
+            /* flex-grow:1; */
+            flex: 2;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">
+            <img src="1.png" alt="">
+            <p>AAAAAAAAAA</p>
+            <p>AAAAAAAAAA</p>
+            <p>AAAAAAAAAA</p>
+        </div>
+        <div class="item">
+            <img src="2.png" alt="">
+            <p>BBBBBBBBBBBBBBBBBBBB</p>
+       
+        </div>
+        <div class="item">
+            <img src="3.png" alt="">
+            <p>CCCCC</p>
+            
+        </div>
+    </div>
+</body>
+</html>
+
+

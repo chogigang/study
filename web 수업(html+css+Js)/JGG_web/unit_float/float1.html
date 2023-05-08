@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float layout</title>
+<style>
+.parent{
+        border: 3px solid red;
+        width: 1000px;
+}
+.top{
+        background-color: purple;
+        /* width: 100%; */
+        height: 200px;
+    }
+.left{
+ 
+    background-color: skyblue;
+    height: 300px;
+    width: 30%;
+    float: left;
+
+}
+.right{
+    background-color: orange;
+    height: 300px;
+    width: 70%;
+    float: right;
+
+
+}
+.clear{
+        background-color: purple;
+        height: 200px;
+       clear:both; /* float 를 자동으로 상속받는걸 방지 하기 위해서 clear both 를 선언 해야 한다 하지 않으면 부모 범위를 초과하는 문제가 발생한다.*/
+}
+</style>
+
+</head>
+<body>
+    
+<div class="parent">
+    <div class="top">머리</div>
+    <div class="left">왼쪽</div>
+    <div class="right">오른쪽</div>
+    <div class="clear">바닥</div>
+</div>
+
+
+</body>
+</html>
+
+<!-- -->

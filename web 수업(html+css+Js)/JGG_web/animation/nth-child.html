@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nth-child()</title>
+<style>
+    .box{ /* 지금 p태그 블록 요소 랑 상황이 같음*/
+        border: 3px solid #000;
+        text-align: center; 
+    }
+    
+    .box div{
+        border: 3px solid orangered;
+        width: 200px;
+        height: 200px;
+        display: inline-block;
+         
+    }
+    /* .box div:nth-of-type(1){
+        background-color: skyblue;
+
+    }
+    .box div:nth-of-type(2){
+        background-color: green;
+
+    }
+    .box div:nth-of-type(3){
+        background-color: fuchsia;
+
+    } 
+    .box div:nth-of-type(4){
+        background-color:  purple;
+        
+    } */
+    /*     
+    .box div:nth-child(odd){     odd 짝수
+        background-color: skyblue;
+
+    } */
+    
+    /* .box div:nth-child(even){     even 홀수 
+       background-color: red;     
+    } */
+
+    .box div:first-child{
+        background-color: skyblue;
+    }
+    .box div:last-child{
+        background-color: red; 
+    }
+
+</style>
+
+</head>
+<body>
+    
+    <div class="box">
+    
+        <div>엄</div>
+        <div>준</div>
+        <div>식</div>
+        <div>&nbsp</div>
+    </div>
+</body>
+</html>
+
+
+
+
+<!--
+ .box div:nth-child() N번째 자식의 한계는 위와 같이 div 상관없이 아무 것이나 자식으로 선언 하면 뒤쪽 자식의 선언을 무시해버림
+    그럴때는 box div:nth-of-type() 선언하면 인식을 잘 한다
+
+    
+-->

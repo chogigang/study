@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float</title>
+<style>
+    body{
+        border: 3px   solid #000;
+    }
+    .parent{
+        border: 2px solid red;
+        width: 600px;
+        /* height: 200px; */
+        overflow: hidden; /* 자식의 float 를 사용해서 위치 크기 높이를 지정하면 부모의 크기도 지정해줄 필요없이 해주는 overflow 명령어*/
+    }
+    .child{
+        background-color: gold;
+        width: 200px;
+        height: 400px;
+        /* float: right; */
+         margin:auto 0; /*div 요소는 float 를 건들여서 중앙으로 이동 시키기보단 margin auto 0; 를 선언하면 부모 태그 크기 기준으로 중앙으로 모이게 된다.*/
+    
+    }
+</style>
+
+</head>
+
+<body>
+    
+<div class="parent">
+    <div class="child"></div>
+</div>
+ </body>
+
+
+</body>
+</html>
+
+
+<!--
+    
+    float (표류하다.)
+    자리 배치를 할때 주로 사용하는 명령어  css포지셔닝 엘리먼트 수평 정렬 할때 사용한다.
+    float:left ,float:right
+    기본값은 nene 이다.
+    
+    body 태그는 넓이는 모두 차지 하고 있지만 높이는 아무것도 차지 하고 있지않다
+    그러나 자식의 높이가 변하면 부모의 높이도 같이 변한다.
+    
+    float 를 선언하면 부모의 높이,넓이를 무시하게 된다.
+    그러나 부모 태그가 overflow: hidden(높이)을 선언하면 자식 클래스가 커지면 자동적으로 같이 부모 태그가 같이 크기가 증가한다.
+-->
