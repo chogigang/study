@@ -97,3 +97,51 @@ update_window()
 window.mainloop()
 
 
+
+////////////////////////
+
+
+
+def calc_resistors(r1, r2, r3, r4, r5, r6, voltage):
+
+    r23 = (r2 * r3) / (r2 + r3)
+    r56 = (r5 * r6) / (r5 + r6)
+    r_total = r1 + r23 + r4 + r56
+    Itotal = voltage / r_total *1000
+    Vbc = Itotal * r23
+    Vde = Itotal * r56
+    I1 = Vbc / r2 
+    I2 = Vbc / r3 
+    I3 = Vde / r5
+    I4 = Vde / r6 
+
+    Vr1 = Itotal * r1 / 1000
+    Vbc = Itotal * r23/ 1000
+    Vr4 = Itotal * r4/ 1000
+    Vde = Itotal * r56/ 1000
+
+    Vae = Vr1 + Vbc + Vr4 + Vde
+
+    print(f"전체저항 : {r_total:.2f} ohms")
+    print(f"I : { Itotal:.2f} mA")
+    print(f"I1 : {I1:.2f} mA")
+    print(f"I2 : {I2:.2f} mA")
+    print(f"I3 : {I3:.2f} mA")
+    print(f"I4 : {I4:.2f} mA")
+    print(f"Vae : {Vae:.2f} V")
+    print(f"Vr1 : {Vr1:.2f} V")
+    print(f"Vbc : {Vbc:.2f} V")
+    print(f"Vr4 : {Vr4:.2f} V")
+    print(f"Vde : {Vde:.2f} V")
+
+r1 = float(input("R1 (ohms): "))
+r2 = float(input("R2 (ohms): "))
+r3 = float(input("R3 (ohms): "))
+r4 = float(input("R4 (ohms): "))
+r5 = float(input("R5 (ohms): "))
+r6 = float(input("R6 (ohms): "))
+voltage = float(input("Voltage (V): "))
+
+calc_resistors(r1, r2, r3, r4, r5, r6, voltage)
+
+
