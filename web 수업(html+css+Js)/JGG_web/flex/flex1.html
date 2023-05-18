@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex예제</title>
+    <script src="https://kit.fontawesome.com/8641167a3f.js" crossorigin="anonymous"></script>
+    <style>
+        body{
+            margin: 0;
+            height: 100vh;
+            
+        }
+        nav{
+            display: flex;
+            justify-content: space-between;
+        }
+        .logo{
+            font-size: 2em;
+            font-weight: bold;
+            margin-left: 1em;
+        }
+        .menu{
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-right: 1em;
+        }
+        .link{
+           
+            border-bottom: 1px solid gray;
+            display: flex;
+          align-items: flex-end;
+          margin: 3px;
+        }
+        .main-content{
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .secondary-content{
+             display: flex;
+             justify-content: space-around;
+            
+        }
+      .box-main ,.boox-second{
+          display: flex;
+          justify-content: center;  
+          align-items: center;
+          flex-direction: column;
+          margin: 0.5em;
+      }
+      .box-main{
+        width: 6em;
+        height: 7em;
+        font-size: 3em;
+        background-color: black;
+        color: skyblue;
+      }
+      .boox-second{
+        width: 5em;
+        height: 5em;
+        font-size: 2em;
+        background-color: skyblue;
+        color: black;
+      }
+      footer{
+        display: flex;
+        justify-content: center;  
+        align-items: center;
+        border-top: 1px solid skyblue;
+        
+      }
+      .text{
+        margin-right: 1em;
+      }
+      .social-media{
+
+        margin-right: 0.5em;
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1 class="logo">FLEXBOX</h1>
+            <ul class="menu">
+                <li class="link">link1</li>
+                <li class="link">link2</li>
+                <li class="link">link3</li>
+                <li class="link">link4</li>
+            </ul>
+        </nav>
+    </header>
+    <section class="main-content">
+        <div class="box-main"><i class="fa-solid fa-code"></i>code</div>
+        <div class="box-main"><i class="fa-solid fa-mug-saucer"></i>coffee</div>
+        <div class="box-main"><i class="fa-solid fa-headphones"></i>music</div>
+    </section>
+    <section class="secondary-content">
+        <div class="div boox-second"><i class="fa-regular fa-sun"></i>sun</div>
+        <div class="div boox-second"><i class="fa-solid fa-users"></i>friends</div>
+        <div class="div boox-second"><i class="fa-solid fa-suitcase"></i>travel</div>
+        <div class="div boox-second"><i class="fa-solid fa-film"></i>movies</div>
+        <div class="div boox-second"><i class="fa-brands fa-pagelines"></i>nature</div>
+    </section>
+    <footer>
+        <p class="text">veredrec@gmail.com</p>
+        <div class="social-media"><i class="fa-brands fa-github"></i></div>
+        <div class="social-media"><i class="fa-brands fa-codepen"></i></div>
+        <div class="social-media"><i class="fa-brands fa-medium"></i></div>
+        <div class="social-media"><i class="fa-brands fa-twitter"></i></div>
+    </footer>
+</body>
+</html>

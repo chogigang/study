@@ -1,0 +1,37 @@
+body{
+    margin: 0;
+    color: #222;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+a{
+    text-decoration: none;
+    color: #222;
+
+
+}
+.gnb{
+    /* border: 1px solid red; */
+    list-style: none;
+    width: 600px;
+    padding: 50px 30px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+.gnb li{
+    /* display: inline-block; */
+    float: left;
+    width: 120px;
+
+    /* border: 1px solid red; */
+    text-align: center;
+    box-sizing: border-box;
+}
+.gnb li a{
+    font-size: 6px;
+
+}

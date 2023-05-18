@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상요소 before after</title>
+
+    <style>
+        body{
+        margin: 0;
+
+        }
+        .gnb{
+            /* border: 1px solid red; */
+            color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            
+        }
+
+    a{
+            text-decoration: none;
+            color: #222;
+}
+
+.gnb a::before{
+    content: '01'; /* content 는 생략 불가능  아무것도 안적어도 content는 무조건 넣어줘야한다.*/
+    background-color: blue;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 50%;
+    font-size: 12px;
+    
+}
+.gnb a::after{
+content: 'update';
+background-color: red;
+color: #fff;
+width: 50px;
+height: 20px;
+display: inline-block;
+text-align: center;
+line-height: 20px;
+border-radius: 15%;
+font-size: 10px;
+margin-left: 5px;
+/* padding: 0 20px; */
+box-sizing: border-box;
+
+    
+}
+    </style>
+</head>
+<body>
+    <div class="gnb"> <!--글로벌 내비게이션 바 -->
+        <a href="#none"> Busan polytech software</a>
+    </div>
+</body>
+</html>
