@@ -1,4 +1,4 @@
 ﻿  Ch6.cpp
-C:\C++school\Ch6\Ch6.cpp(200,13): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
-C:\C++school\Ch6\Ch6.cpp(205,16): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\C++school\Ch6\Ch6.cpp(376,13): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+C:\C++school\Ch6\Ch6.cpp(381,22): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   Ch6.vcxproj -> C:\C++school\Ch6\x64\Debug\Ch6.exe
