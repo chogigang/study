@@ -23,7 +23,3 @@ for i in range(1, 101):
     c[rand_val] = c[rand_val] + 1
 
 print(f"{c}")
-
-
-
-
