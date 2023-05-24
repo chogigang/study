@@ -1,14 +1,15 @@
 *폰트어썸*
 <script src="https://kit.fontawesome.com/0061579604.js" crossorigin="anonymous"></script>
 
+<i class="fa-brands fa-facebook"></i>
 
+<i class="fa-brands fa-twitter"></i>
 
-
+<i class="fa-brands fa-instagram"></i>
 
 *영어 폰트*
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-</style>
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 font-family: 'Roboto', sans-serif;
 
 *한글 폰트*
@@ -16,5 +17,3 @@ font-family: 'Roboto', sans-serif;
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 </style>
 font-family: 'Noto Sans KR', sans-serif;
-
-

@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    line-height: 1.5em;
+    color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+a{  
+    color: #222;
+    text-decoration: none;
+}
+.container{
+    /* border: 1px solid red; */
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.card:nth-child(1):hover .content {
+    background: linear-gradient(to top, orangered, transparent);
+}
+
+.card:nth-child(2):hover .content {
+    background: linear-gradient(to top, skyblue, transparent);
+}
+
+.card:nth-child(3):hover .content {
+    background: linear-gradient(to top, lightgreen, transparent);
+}
+.card{
+    /* border:1px solid blue; */
+    width: 300px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.5s;
+
+}
+.card:hover .content{
+    top: 0;
+    transition: 1s;
+}
+.card:hover{
+    transform: translateY(-20px);
+}
+.content{
+    /* border: 1px solid red; */
+    width: inherit;
+    height: inherit;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    /* box-sizing: border-box; */
+    padding-top: 150px;
+    /* background: linear-gradient(to top, orangered, transparent); */
+    position: absolute;
+    top:100%;
+    left: 0;
+}
+
+
+.content h2{
+    font-size: 30px;
+}
+.content h2 span{
+    display: block;
+    font-size: 14px;
+    color: gold;
+    margin-top: 10px;
+}
+.sns a{
+    /* border: 1px solid orange; */
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 50%;
+    font-size: 13px;
+    text-align: center;
+    line-height: 20px;
+}
