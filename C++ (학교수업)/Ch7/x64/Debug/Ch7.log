@@ -1,0 +1,3 @@
+﻿  Ch7.cpp
+C:\C++school\Ch7\Ch7.cpp(281,13): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+  Ch7.vcxproj -> C:\C++school\Ch7\x64\Debug\Ch7.exe
