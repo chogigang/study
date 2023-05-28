@@ -144,4 +144,6 @@ voltage = float(input("Voltage (V): "))
 
 calc_resistors(r1, r2, r3, r4, r5, r6, voltage)
 
+//집 와이파이가 고장나서 커밋 현제 
+
 
