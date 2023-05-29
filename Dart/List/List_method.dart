@@ -39,6 +39,11 @@ print(a);
 
 print(a.length); //리스트 길이
 
+print(a.contains(2));//리스트에 특정값이 있는지 확인하기 있으면 true 없으면 false 를 반환
+
+print(a.isEmpty);//리스트가 비어있는지 확인 있으면 true 없으면 false 반환
+
+
 //리스트 원소 검색
 a.contains(0); 
 //리스트가 어떤 원소를 갖고 있는지 확인하고 싶다면, contains 메소드를 쓸 수 있다.
