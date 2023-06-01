@@ -1,5 +1,5 @@
 //map
-
+//키 밸류 값을 적어서 사용하는 map 자료구조
 
 void main() {
     Map<String, String> me = {
@@ -24,13 +24,18 @@ void main() {
 
   me.remove('age');// 맵의 특정값 지우기 
   print(me);
-  me.clear(); //모든 map 값을 전부 지우는 명령어 
+  // me.clear(); //모든 map 값을 전부 지우는 명령어 
 
 
 print(me);
 print(me.isEmpty); //값이 비어있으면 true 값이 있으면 false
 
+me.update('car', (honda) => 'moning'); // Map에서 지정된 키(key)에 대한 값을 업데이트합니다.
+// 만약 키(key)가 존재하지 않을 경우, ifAbsent 함수를 통해 새로운 값으로 추가할 수 있습니다.
+print(me);
 
+me.putIfAbsent('pet', () => 'dog'); //지정된 키(key)가 Map에 존재하지 않을 경우, 새로운 키-값 쌍을 추가합니다.
+print(me);
 
 
 
