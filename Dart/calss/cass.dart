@@ -64,7 +64,7 @@ Animal 클래스의 name과 leg 필드는 생성자에서 초기화되기 때문
 
 // void main(){
 // Animal lion =Animal('사자',4);
-// lion.name ='호랑이'; //setter
+// lion.name ='호랑이'; //setter  
 // lion.move();
 
 // Animal spider =Animal('거미', 8);
@@ -294,6 +294,8 @@ class Client extends MySuper with Mixin {}
 void main() {
   Client().method();
 }
+
+
 /* 실행 결과
 MySuper
 Sub
