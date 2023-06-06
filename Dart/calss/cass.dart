@@ -15,6 +15,64 @@ his.name 에서 this는 클래스를 의미한다.
 
 */ 
 
+
+
+
+void main(){
+ Idol blackpink = Idol('블랙핑크',['지수','제니','리사','로제']); 
+
+
+print(blackpink.name);
+print(  blackpink.members);
+blackpink.sayHello();
+blackpink.introduce();
+
+Idol bts = Idol('BTS', ['Rm','진','슈가','제이홉','지민','뷔','정국']);
+
+print(bts.name);
+print(bts.members);
+bts.sayHello();
+bts.introduce();
+
+}
+
+
+// Idol class
+//name (이름) -변수 
+//members (맴버들) - 변수
+//sayHello(인사) -함수
+//introduce (맴버 소개) - 함수
+//constructor (생성자)
+
+class Idol{
+
+String name;
+List<String>members;
+
+
+Idol(String name, List<String>members)
+:this.name= name,
+this.members=members;
+
+void sayHello(){
+  print('안녕하세요 블랙핑크 입니다.');
+
+}
+void introduce(){
+
+  print('저희 맴버는 지수 ,제니, 리사 ,로제가 있습니다.');
+}
+
+}
+
+
+
+
+
+
+
+
+
 // void main(){
 // Animal loin = Animal(name:'사자',leg:4);
 // loin.move();
@@ -270,34 +328,38 @@ Mixins
 
  */
 
-abstract class Super {
-  void method() {
-    print("Super");
-  }
-}
+// abstract class Super {
+//   void method() {
+//     print("Super");
+//   }
+// }
  
-class MySuper implements Super {
-  void method() {
-    print("MySuper");
-  }
-}
+// class MySuper implements Super {
+//   void method() {
+//     print("MySuper");
+//   }
+// }
  
-mixin Mixin on Super {
-  void method() {
-    super.method();
-    print("Sub");
-  }
-}
+// mixin Mixin on Super {
+//   void method() {
+//     super.method();
+//     print("Sub");
+//   }
+// }
  
-class Client extends MySuper with Mixin {}
+// class Client extends MySuper with Mixin {}
  
-void main() {
-  Client().method();
-}
+// void main() {
+//   Client().method();
+// }
 
 
-/* 실행 결과
-MySuper
-Sub
-*/
+// /* 실행 결과
+// MySuper
+// Sub
+// */
+
+
+
+
 
