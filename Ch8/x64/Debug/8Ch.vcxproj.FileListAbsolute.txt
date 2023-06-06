@@ -1,2 +1,0 @@
-C:\C++school\8Ch\x64\Debug\8Ch.exe
-C:\C++school\Ch8\x64\Debug\8Ch.exe
