@@ -129,6 +129,9 @@
   <ItemGroup>
     <ClCompile Include="8Ch.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="함수 메모" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

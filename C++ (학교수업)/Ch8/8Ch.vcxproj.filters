@@ -19,4 +19,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="함수 메모">
+      <Filter>소스 파일</Filter>
+    </None>
+  </ItemGroup>
 </Project>
