@@ -16,24 +16,30 @@ his.name 에서 this는 클래스를 의미한다.
 */ 
 
 
-
+/*  const 값을 설정을 안하면 blackpink랑 blackpink2 는 메모리상 다른 값으로 인식을 한다 하지만 둘다 const 를 선언을 하면
+    값일 일치할때 같은 값으로 인식을 한다. 이건 나중에 플러터를 사용할때 중요한 내용이다.
+*/
 
 void main(){
- Idol blackpink = Idol('블랙핑크',['지수','제니','리사','로제']); 
+//  Idol blackpink = Idol('블랙핑크',['지수','제니','리사','로제']); 
+//  Idol blackpink = Idol.fromList([['지수','제니','리사','로제'],'블랙핑크',]);  //네임드 컨스트럭터
+// Idol blackpink2 = Idol.fromList([['지수','제니','리사','로제'],'블랙핑크',]);
+ Idol blackpink = const Idol('블랙핑크',['지수','제니','리사','로제']); //밑에 Idol클래스에서 const 를 선언해줘야 위에서 const 를 선언해줄수 있다.
 
+// print(blackpink==blackpink2); // 같으면 트루 틀리면 펄스
 
 print(blackpink.name);
 print(  blackpink.members);
 blackpink.sayHello();
 blackpink.introduce();
 
-Idol bts = Idol('BTS', ['Rm','진','슈가','제이홉','지민','뷔','정국']);
+// Idol bts = Idol('BTS', ['Rm','진','슈가','제이홉','지민','뷔','정국']);
+Idol bts = Idol.fromList([['진','슈가','제이홉','지민','뷔','정국'],'BTS',]); //네임드 컨스트럭터
 
 print(bts.name);
 print(bts.members);
 bts.sayHello();
 bts.introduce();
-
 }
 
 
@@ -44,23 +50,31 @@ bts.introduce();
 //introduce (맴버 소개) - 함수
 //constructor (생성자)
 
+
 class Idol{
 
-String name;
-List<String>members;
+final String name;
+final List<String>members;
 
 
-Idol(String name, List<String>members)
-:this.name= name,
-this.members=members;
+// Idol(String name, List<String>members)
+// :this.name= name,
+//  this.members=members;
+const Idol(this.name,this.members); //위와 동일한 코드 위 타입과 동일하게 해줘야한다 갑자기 다른 자료형 리스트나 다른걸 넣으면 오류가 걸림
+
+//네임드 컨스트럭터 named constructor (이름이 있는 생성자.) //네임드 파라미터랑 굉장히 비슷한 성격을 가지고 있다.
+//생성을 할려면 기본 생성자에 . 을 찍고  원하는 이름을 지어 주면 된다.
+Idol.fromList(List values): this.members = values[0],
+                            this.name    = values[1];
+
 
 void sayHello(){
-  print('안녕하세요 블랙핑크 입니다.');
+  print('안녕하세요 ${this.name} 입니다.');
 
 }
 void introduce(){
 
-  print('저희 맴버는 지수 ,제니, 리사 ,로제가 있습니다.');
+  print('저희 맴버는 ${this.members}가 있습니다.');
 }
 
 }
