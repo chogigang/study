@@ -29,7 +29,7 @@ void main(){
 // print(blackpink==blackpink2); // 같으면 트루 틀리면 펄스
 
 print(blackpink.name);
-print(  blackpink.members);
+print(blackpink.members);
 blackpink.sayHello();
 blackpink.introduce();
 
