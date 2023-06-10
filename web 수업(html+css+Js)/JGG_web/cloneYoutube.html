@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클론코딩 유튜브</title>
+     <link rel="stylesheet" href="cloneYoutube.css">
+     <script src="https://kit.fontawesome.com/0061579604.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+      <div class="logo">
+        <i class="fab fa-youtube"></i>
+        <span class="title"> Youtube</span>
+      </div>
+      <div class="icons">
+        <i class="fas fa-search"></i>
+        <i class="fas fa-ellipsis-v"></i>
+      </div>
+    </header>
+  
+    <section class="player">
+      <!-- <video autoplay src="https://www.youtube.com/watch?v=mW1uE1b3rzE&t=17s"</video> -->
+      <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/67stn7Pu7s4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+      <video controls width="800" src="video/SW.mp4"></video>
+    </section>
+  
+    <div class="infoAndNextVideo">
+      <section class="mainInfo">
+        <div class="metadata">
+          <ul class="hashtags">
+            <li>#부산폴리텍</li>
+            <li>#소프트웨어융합</li>
+            <li>#프론트엔드</li>
+          </ul>
+          <div class="titleAndButton">
+            <span class="title clamp">
+              Youtube 클론 코딩~ 유튜브 사이트 따라 만들기(HTML CSS Javascript, 웹 포트폴리오) | 프론트엔드 개발자 입문편 한국폴리텍대학 부산캠퍼스 소프트웨어융합과 "내가 변하면
+              모든 것이 변한다"</span>
+            <button class="moreBtn"><i class="fas fa-caret-down"></i></button>
+          </div>
+          <span class="views">1M views 1 month ago</span>
+        </div>
+        <!-- <div class="actions"></div> -->
+        <ul class="actions">
+          <li><button><i class="active fa-solid fa-thumbs-up"></i><span>1K</span></button></li>
+          <li><button><i class="fa-solid fa-thumbs-down"></i><span>0</span></button></li>
+          <li><button><i class="fa-solid fa-share-nodes"></i><span>Share</span></button></li>
+          <li><button><i class="fa-solid fa-plus"></i><span>Save</span></button></li>
+          <li><button><i class="fa-regular fa-flag"></i><span>Report</span></button></li>
+        </ul>
+        <div class="channel">
+          <div class="metadata">
+            <img src="images/avata.png" alt="">
+            <div class="info">
+              <span class="name">부산폴리텍 소프트웨어융합과</span>
+              <span class="subscribers">10M subscribers</span>
+            </div>
+          </div>
+          <!-- <div class="subscribe"></div> -->
+          <button class="subscribe">subscribe</button>
+        </div>
+      </section>
+  
+      <section class="nextVideo">
+        <span class="title"> Next Video</span>
+        <ul>
+          <li class="item">
+            <div class="img"><img src="images/item1.png" alt=""></div>
+            <div class="itemInfo">
+              <span class="title">스마트폰, 태블릿, 컴퓨터 등 디지털기기에 대한 소프트웨어 개발을 위한 기초 리론과 실무기술에 대한 교육^^
+                HTML, CSS, Jascript, Python, JAVA, Database...
+              </span>
+              <span class="name">부산폴리텍 소프트웨어융합과</span>
+              <span class="views">82K views</span>
+            </div>
+            <button class="moreBtn">...</button>
+          </li>
+          <li class="item">
+            <div class="img"><img src="images/item2.png" alt=""></div>
+            <div class="itemInfo">
+              <span class="title">스마트폰, 태블릿, 컴퓨터 등 디지털기기에 대한 소프트웨어 개발을 위한 기초 리론과 실무기술에 대한 교육^^
+                HTML, CSS, Jascript, Python, JAVA, Database...
+              </span>
+              <span class="name">부산폴리텍 소프트웨어융합과</span>
+              <span class="views">96K views</span>
+            </div>
+            <button class="moreBtn">...</button>
+          </li>
+          <li class="item">
+            <div class="img"> <img src="images/item3.png" alt=""></div>
+            <div class="itemInfo">
+              <span class="title">스마트폰, 태블릿, 컴퓨터 등 디지털기기에 대한 및 소프트웨어 개발을 위한 기초 리론과 실무기술에 대한 교육^^
+                HTML, CSS, Jascript, Python, JAVA, Database...
+              </span>
+              <span class="name">부산폴리텍 소프트웨어융합과</span>
+              <span class="views">10M views</span>
+            </div>
+            <button class="moreBtn">...</button>
+          </li>
+        </ul>
+      </section>
+    </div>
+    <script src="youtube.js"></script>
+  </body>
+  </html>
