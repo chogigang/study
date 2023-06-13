@@ -953,24 +953,134 @@ int main() {
 //}
 
 
+//
+//typedef struct STag {
+//
+//	char m;
+//
+//}SType;
+//
+//
+//
+//void main() {
+//
+//	SType a, b;
+//
+//	a.m =1;
+//	b = a;
+//
+//
+//	if (a == b) {
+//		cout << "Equal" << endl;
+//	}
+//}
 
-typedef struct STag {
+//void Mod(int, int);
+//
+//void Sub(int arg, int m) {
+//	Mod(arg - m, m);
+//}
+//
+//void Mod(int arg, int m) {
+//
+//	if (arg < m) {
+//		cout << arg << endl;
+//	}
+//	else {
+//		Sub(arg, m);
+//	}
+//
+//}
+//
+//void main() {
+//	Mod(11, 3);
+//
+//}
 
-	char m;
-
-}SType;
 
 
+//void VFFunc(int arg1, int arg2, ...) {
+//	char* p = (char*)&arg2;
+//
+//
+//
+//#ifdef _WIN64
+//	cout << *(double*)(p + 8) << endl;
+//#else
+//	cout << *(double*)(p + 4) << endl;
+//#endif // !_WIN64
+//}
+//
+//
+//void main() {
+//	VFFunc(1, 2, 3.0, '4', "Five");
+//
+//}
 
-void main() {
 
-	SType a, b;
-
-	a.m =1;
-	b = a;
+//가변 인자 매크로
 
 
-	if (a == b) {
-		cout << "Equal" << endl;
-	}
-}
+//#include<stdarg.h>
+//
+//void VFFunc(int arg1, int arg2, ...) {
+//    va_list arg_ptr;
+//    va_start(arg_ptr, arg2);
+//    double varg3 = va_arg(arg_ptr, double);
+//    char varg4 = va_arg(arg_ptr, char);
+//    char* varg5 = va_arg(arg_ptr, char*);
+//    va_end(arg_ptr);
+//
+//    cout << arg1 << endl;
+//    cout << arg2 << endl;
+//    cout << varg3 << endl;
+//    cout << varg4 << endl;
+//    cout << varg5 << endl;
+//}
+//
+//
+//
+//
+//void main() {
+//
+//	VFFunc(1, 2, 3.0, '4', "Five");
+
+
+//void FuncValue(int arg) {
+//	arg = 1;
+//}
+//
+//void FuncPointer(int* arg) {
+//	*arg = 2;
+//}
+//
+//void FuncReference(int& arg) {
+//	arg = 3;
+//}
+//void main() {
+//	int i = 0;
+//	FuncValue(i);
+//	cout << i << endl; //int i랑 메모리를 분리해서 따로 관리하기때문에 0을 출력
+//
+//	int j = 0;
+//	FuncPointer(&j);
+//	cout << j << endl; //메모리 주소를 참조 하기때문에 2를 출력
+//
+//	int k = 0;
+//	FuncReference(k);
+//	cout << k << endl; //메모리 주소를 참조 하기때문에 3을 출력
+//}
+
+
+
+
+//int GetNextValue(const int& arg) {
+//	return arg + 1;
+//}
+//
+//void main() {
+//
+//	cout << GetNextValue(1) << endl;
+//}
+
+
