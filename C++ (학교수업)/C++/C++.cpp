@@ -1084,3 +1084,344 @@ int main() {
 //}
 
 
+
+
+//프로그래밍 연습문제 
+
+
+
+
+ // 다음 프로그램의 출력 결과가 3이 되도록 Set 함수를 작성하시오.
+
+
+//void main() {
+//	int a;
+//	int* p = &a;
+//	int** pp = &p;
+//
+//	Set(pp, 3);
+//	cout << a << endl;
+//}
+
+
+
+//
+//void Set(int& arg, int delta) {
+//	arg = delta;
+//}
+//
+//int main() {
+//	int a;
+//	int* p = &a;
+//	int** pp = &p;
+//
+//	Set(**pp, 3);
+//	cout << a << endl;
+//}
+
+
+// 다음 프로그램의 출력 결과가 3이 되도록 Increment 함수를 작성하시오.
+//void main() {
+//
+//	int a = 2;
+//	Increment(a);
+//	cout << a << endl;
+//}
+
+//void Increment(int &arg) {
+//	arg = 3;
+//}
+//
+//
+//
+//void main() {
+//
+//	int a = 2;
+//	Increment(a);
+//	cout << a << endl;
+//}
+
+// 배열 int arr[] = { 1, 6, 9, 7, 3, 2, 0, 4, 8, 5 }를 가지고 다음 프로그램을 작성하시오.
+//(1) arr의 모든 원소의 합을 구하는 프로그램
+//void main() {
+//	int arr[] = { 1, 6, 9, 7, 3, 2, 0, 4, 8, 5 };
+//	int sum=0;
+//	int n = size(arr);
+//
+//	for (int i = 0; i < n; i++) {
+//		sum += arr[i];
+//	}
+//
+//	cout << sum << endl;
+//}
+
+
+//(2)arr의 최솟값과 최대값을 구하는 프로그램
+//int arr[] = { 1, 6, 9, 7, 3, 2, 0, 4, 8, 5 }
+//void main() {
+//	int arr[] = { 1, 6, 9, 7, 3, 2, 0, 4, 8, 5 };
+//	int min = 0;
+//	int max = 0;
+//	int n = size(arr);
+//
+//	for (int i = 0; i < n; i++) {
+//		if (min > arr[i]) {
+//			min = arr[i];
+//		}
+//		else if(max<arr[i]) {
+//			max = arr[i];
+//		}
+//	}
+//
+//	cout << "최소값 :" << min << endl;
+//	cout <<"최대값 :" << max << endl;
+//
+//
+//}
+
+
+//(3) arr의 원소들을 역순으로 재구성하는 프로그램
+// int arr[] = { 1, 6, 9, 7, 3, 2, 0, 4, 8, 5 }
+
+//void main() {
+//	int arr[] = { 1, 6, 9, 7, 3, 2, 0, 4, 8, 5 };
+//	const int n = size(arr);
+//
+//	int arr2[n] = {};
+//	for (int i = 0; i < n; i++) {
+//		arr2[i] = arr[(n - 1) - i];
+//	
+//	}
+//
+//	for (int j = 0; j < n; j++) {
+//		cout << arr2[j] << ",";
+//	}
+//}
+
+
+
+//(4) arr 의 원소들을 오름차순으로 정렬하여 재구성하는 프로그램
+//int arr[] = { 1, 6, 9, 7, 3, 2, 0, 4, 8, 5 }
+
+//void main() {
+//	    int arr[] = { 1, 6, 9, 7, 3, 2, 0, 4, 8, 5 };
+//	    int temp;
+//	    int n = size(arr);
+//	
+//	    for (int i = 0; i < n - 1; i++) {
+//	        for (int j = i + 1; j < n; j++) {
+//	            if (arr[i] > arr[j]) { //오름차순        <  내림차순 
+//	                temp = arr[i];
+//	                arr[i] = arr[j];
+//	                arr[j] = temp;
+//	            }
+//	        }
+//	    }
+//	
+//	    for (int k = 0; k < n; k++) {
+//	        cout << arr[k] << ",";
+//	    }
+//	
+//	    
+//	}
+
+
+// 다음 로봇 명세를 보고 프로그램을 작성하시오.
+
+
+
+// //구조체 연습문제 
+
+//struct Robot {
+//	string name;
+//	int height;
+//	int weight;
+//	int power;
+//};
+//
+//// (2) 로봇의 명세를 출력하는 함수 Print 구현
+//void Print(Robot* robot) {
+//	cout << "로봇 명세" << endl;
+//	cout << "이름: " << robot->name << endl;
+//	cout << "신장: " << robot->height << "m" << endl;
+//	cout << "무게: " << robot->weight << "T" << endl;
+//	cout << "마력: " << robot->power << endl;
+//	cout << endl;
+//}
+//
+//// (3) 로봇들의 평균 신장, 평균 무게, 평균 마력을 출력하는 함수 Avg 구현
+//void Avg(Robot robots[4]) {
+//	double totalHeight = 0;
+//	double totalWeight = 0;
+//	double totalPower = 0;
+//
+//	for (int i = 0; i < 4; i++) {
+//		totalHeight += robots[i].height;
+//		totalWeight += robots[i].weight;
+//		totalPower += robots[i].power;
+//	}
+//
+//	double avgHeight = totalHeight / 4;
+//	double avgWeight = totalWeight / 4;
+//	double avgPower = totalPower / 4;
+//
+//	cout << "로봇들의 평균 신장: " << avgHeight << "m" << endl;
+//	cout << "로봇들의 평균 무게: " << avgWeight << "T" << endl;
+//	cout << "로봇들의 평균 마력: " << avgPower << endl;
+//	cout << endl;
+//}
+//
+//int main() {
+//	// (4) 모든 로봇의 명세를 출력하는 프로그램
+//	Robot robots[4] = {
+//		{"태권브이", 18, 80, 3000},
+//		{"마징가", 17, 70, 2500},
+//		{"메칸더브이", 20, 90, 3500},
+//		{"그랜다이져", 22, 100, 5000}
+//	};
+//
+//	for (int i = 0; i < 4; i++) {
+//		Print(&robots[i]);
+//	}
+//
+//	Avg(robots);
+//
+//	return 0;
+//}
+
+
+ //  함수 문제
+
+// 다음 프로그램의 함수 Absolute는 인자의 값을 절댓값으로 변환하는 함수이다. 출력 결과가 3,5가 나오도록 Absolute를 작성하시오.
+
+//void Absolute(int& arg) {
+//	if (arg < 0) {
+//		arg = -arg;
+//	}
+//
+//}
+//
+//void main() {
+//
+//	int a = 3;
+//	int b = -5;
+//
+//	Absolute(a);
+//	Absolute(b);
+//
+//	cout << a << endl;
+//	cout << b << endl;
+//
+//}
+
+
+
+
+//배열 int arr[]={ 1, 6, 9, 7, 3, 2, 0, 4, 8, 5 } 를 가지고 다음 프로그램을 작성하시오.
+
+
+//(1) 배열의 합
+
+//void main() {
+//	int arr[] = { 1, 6, 9, 7, 3, 2, 0, 4, 8, 5 };
+//	int sum = 0;
+//	int n = size(arr);
+//	for (int i = 0; i < n; i++) {
+//		sum += arr[i];
+//	
+//	}
+//
+//	cout << sum << endl;
+//}
+
+
+//(2) 배열의 최소값 최대값
+
+
+//void main() {
+//	int arr[] = { 1, 6, 9, 7, 3, 2, 0, 4, 8, 5 };
+//	int min = 0;
+//	int max = 0;
+//	int n=size(arr);
+//
+//
+//	for (int i = 0; i < n; i++) {
+//		if (min > arr[i]) {
+//			min = arr[i];
+//		}
+//		else if (max < arr[i]) {
+//			max = arr[i];
+//		}
+//	}
+//	cout << "최대값: " << max << endl;
+//	cout << "최소값: " << min << endl;
+//
+//}
+
+// (3) 역순으로 재구성 하는 프로그램
+
+// int arr[] = { 1, 6, 9, 7, 3, 2, 0, 4, 8, 5 }
+
+//void main() {
+//
+//	int arr[] = { 1, 6, 9, 7, 3, 2, 0, 4, 8, 5 };
+//	const int n = size(arr);
+//	int arr2[n] = {};
+//
+//	for (int i = 0; i < n; i++) {
+//	
+//		arr2[i] = arr[(n - 1) - i];
+//	}
+//
+//	for (int j = 0; j < n; j++) {
+//	
+//		cout << arr2[j] << ",";
+//	}
+//}
+
+
+//(4)arr의 원소들을 오름차순으로 정렬하여 재구송하는 프로그램
+
+
+//void main() {
+//	    int arr[] = { 1, 6, 9, 7, 3, 2, 0, 4, 8, 5 };
+//	    int temp;
+//	    int n = size(arr);
+//	
+//	    for (int i = 0; i < n - 1; i++) {
+//	        for (int j = i + 1; j < n; j++) {
+//	            if (arr[i] > arr[j]) { //오름차순        <  내림차순 
+//	                temp = arr[i];
+//	                arr[i] = arr[j];
+//	                arr[j] = temp;
+//	            }
+//	        }
+//	    }
+//	
+//	    for (int k = 0; k < n; k++) {
+//	        cout << arr[k] << ",";
+//	    }
+//	
+//	    
+//	}
+
+//void main() {
+//	int arr[] = { 1, 6, 9, 7, 3, 2, 0, 4, 8, 5 };
+//	const int n = size(arr);
+//	int temp;
+//
+//	for (int i = 0; i < n - 1; i++) {
+//		for (int j = i + 1; j < n; j++) {
+//			if (arr[i] > arr[j]) {
+//				temp = arr[i];
+//				arr[i] = arr[j];
+//				arr[j] = temp;
+//			}
+//		}
+//	}
+//	for (int k = 0; k < n; k++) {
+//		cout << arr[k] << ",";
+//	}
+//
+//
+//}
