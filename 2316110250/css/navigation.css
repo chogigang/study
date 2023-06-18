@@ -3,7 +3,13 @@
     top: 0;
     left: 0;
     z-index: 10;
+    
 }
+#nav {
+    display: none;
+  }
+  
+
 .nav_wrapper{
     min-width: 200px;
     min-height: 100vh;

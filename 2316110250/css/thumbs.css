@@ -13,7 +13,17 @@
 .thumbs_thumbnail{
     max-width: 100%;
     margin: 0 0 10px 0;  
-}
+    border-radius: 8%; /* 둥글기 모양*/
+    transition: border-radius 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;    
+  }
+.thumbs_thumbnail:hover {
+    border-radius: 0;
+    transform: translateY(-5px);
+    transition: border-radius 0.3s ease;
+    
+  }
+ 
 .thumbs_info{
     display: flex;
 }

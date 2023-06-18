@@ -1,4 +1,4 @@
-.header{
+.header {
     position: fixed;
     top: 0;
     left: 0;
@@ -7,58 +7,100 @@
     box-shadow: 0 0 3px #000;
     z-index: 20;
 }
-.header_wrapper{
+.header_form {
+    position: relative;
+  }
+
+.header_wrapper {
     height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 16px;
 }
+
 /* .header_start{
     height: 40px;
     line-height: 40px;
 }  */
-.header_hamburger{
+.header_hamburger {
     border: none;
     background-color: transparent;
     font-size: 1.5rem;
 }
-.header_title{
+
+.header_title {
     font-size: 1.2rem;
     margin-left: 6px;
 }
-.header_center{
+
+.header_center {
     width: 50%;
 }
-.header_form{
+
+.header_form {
     display: flex;
     max-width: 100%;
 }
-.header_input_text{
+/* .header_input_text,
+.header_input_button {
+  display: block;
+} */
+
+.header_input_text {
     width: calc(100% - 60px);
     height: 40px;
     padding: 0 6px;
     border: 1px solid #8f8f8f;
     border-right: none;
-    border-radius: 5px 0 0 5px;
+    border-radius: 20px;
+   
 }
-.header_input_button{
+
+.header_start .fab.fa-youtube {
+    color: red;
+    font-size: 1.5rem;
+}
+
+.header_input_button {
     width: 60px;
     height: 40px;
     border: 1px solid #8f8f8f;
     border-left: none;
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 20px 20px 0;
+    position: fixed;
+    right: 400px;
+  
+
 }
-.header_end{
+.fa-microphone {
+    font-size: 1.5rem;
+    position: absolute;
+    top: 50%;
+    right: 10px; /* 원하는 만큼 오른쪽으로 이동 */
+    transform: translateY(-50%); /* 수직 중앙 정렬 */
+    
+  }
+
+
+.header_hamburger:hover {
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    background-color: #ccc;
+}
+
+.header_end {
     display: flex;
 }
-.header_search{
+
+.header_search {
     display: none;
     border: none;
     background-color: transparent;
     font-size: 1.5rem;
 }
-.header_profile{
+
+.header_profile {
     width: 40px;
     height: 40px;
     /* border: 1px solid #eaeaea; */
@@ -68,17 +110,18 @@
     background-size: 40px 40px;
 }
 
-@media screen and (max-width: 800px){
-    .header_title{
+@media screen and (max-width: 800px) {
+    .header_title {
         display: none;
     }
 }
 
-@media screen and (max-width: 400px){
-    .header_center{
+@media screen and (max-width: 400px) {
+    .header_center {
         display: none;
     }
-    .header_search{
+
+    .header_search {
         display: block;
     }
-} 
+}
