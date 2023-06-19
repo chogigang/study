@@ -356,6 +356,7 @@ import random
 
 
 
+
 # from tkinter import*
 # from tkinter import messagebox
 # import random
@@ -524,38 +525,218 @@ import random
 
 
 
-def click(num):
-    if num == "=":
-        result = eval(number_entry.get())
-        number_entry.delete(0, END)
-        number_entry.insert(END, "=" + str(result))
-    elif num == "C":
-        number_entry.delete(0, END)
-    elif num == "<":
-        current = number_entry.get()
-        number_entry.delete(0, END)
-        number_entry.insert(END, current[:-1])
-    else:
-        number_entry.insert(END, num)
+# def click(num):
+#     if num == "=":
+#         result = eval(number_entry.get())
+#         number_entry.delete(0, END)
+#         number_entry.insert(END, "=" + str(result))
+#     elif num == "C":
+#         number_entry.delete(0, END)
+#     elif num == "<":
+#         current = number_entry.get()
+#         number_entry.delete(0, END)
+#         number_entry.insert(END, current[:-1])
+#     else:
+#         number_entry.insert(END, num)
 
-button_n = ['7', '8', '9', '/', '4', '5', '6', '*', '1', '2', '3', '-', '00', '0', '.', '+', 'C', '=', '<']
+# button_n = ['7', '8', '9', '/', '4', '5', '6', '*', '1', '2', '3', '-', '00', '0', '.', '+', 'C', '=', '<']
 
-window = Tk()
-window.title("계산기")
-window.geometry("200x290")
-window.resizable(width=False, height=False)
+# window = Tk()
+# window.title("계산기")
+# window.geometry("200x290")
+# window.resizable(width=False, height=False)
 
-number_entry = Entry(window, width=26)
-number_entry.place(x=5, y=10)
+# number_entry = Entry(window, width=26)
+# number_entry.place(x=5, y=10)
 
-x = 5
-y = 40
+# x = 5
+# y = 40
 
-for b in button_n:
-    Button(window, text=b, width=4, height=2, command=lambda t=b: click(t)).place(x=x, y=y)
-    x += 50
-    if (x - 5) % 200 == 0:
-        y += 50
-        x = 5
+# for b in button_n:
+#     Button(window, text=b, width=4, height=2, command=lambda t=b: click(t)).place(x=x, y=y)
+#     x += 50
+#     if (x - 5) % 200 == 0:
+#         y += 50
+#         x = 5
 
+# window.mainloop()
+
+
+
+# def game(com,me):
+#     if com==me:
+#         messagebox.showinfo("Result","비김....")
+#         print("-----------")
+#     elif(me==1 and com==3)or(me==2 and com==1)or(me==3 and com==2):
+#         messagebox.showinfo("Result","내가 이김...")
+#         print("-----------")
+#     else : 
+#         messagebox.showinfo("Result","내가 졌음...")
+#         print("-----------")
+
+
+
+# sel_me =int(input("1:가위 2:바위 3:보 =>" ))
+# sel_com=random.randrange(1,4)
+# game(sel_com,sel_me)
+
+# def game():
+#     me = var.get()
+#     com = random.randint(1,3)
+
+#     if me == 1:
+#         label2.configure(image=photo_scis)
+#     elif me == 2:
+#         label2.configure(image=photo_rock)
+#     else:
+#         label2.configure(image=photo_pape)
+
+#     if com == 1:
+#         label3.configure(image=photo_scis)
+#     elif com == 2:
+#         label3.configure(image=photo_rock)
+#     else:
+#         label3.configure(image=photo_pape)
+
+#     if com == me :
+#         messagebox.showinfo("Result" ,"비겼습니다.")
+#     elif (com == 1 and me == 2) or (com == 2 and me == 3) or (com == 3 and me == 1):
+#         messagebox.showinfo("Result" ,"이겼습니다.")
+#     else:
+#         messagebox.showinfo("Result" ,"졌습니다.")
+
+# window = Tk()
+# window.geometry("500x900")
+
+# photo_rock = PhotoImage(file="image/ro.gif")
+# photo_scis = PhotoImage(file="image/sc.gif")
+# photo_pape = PhotoImage(file="image/pa.gif")
+# photo_st = PhotoImage(file="image/st.gif")
+
+# var=IntVar()
+
+# scis = Radiobutton(window, text="가위",variable=var,value=1,command=game).grid(row=1,column=0)
+# rock = Radiobutton(window, text="바위",variable=var,value=2,command=game).grid(row=2,column=0)
+# pape = Radiobutton(window, text="보",variable=var,value=3,command=game).grid(row=3,column=0)
+
+# label1=Label(window,image=photo_st)
+# label2=Label(window)
+# label3=Label(window)
+# label4=Label(window,text="본인선택")
+# label5=Label(window,text="컴퓨터선택")
+# label1.grid(row=0,column=0)
+# label2.grid(row=4,column=0)
+# label4.grid(row=5,column=0)
+# label3.grid(row=6,column=0)
+# label5.grid(row=7,column=0)
+# window.mainloop()
+
+
+# def prt(a):
+#     com=random.randrange(1,4)
+#     me=var.get()
+#     label2.configure(image=spr_photo[me])
+#     me=var.get()
+#     label1.config(image=spr_photo)
+#     game(com,me)
+
+
+# def game(com,me):
+#     if com==me:
+#         messagebox
+
+
+
+
+
+
+def ent1_get():   #  엔트리 1값을 엔트리 2  에 출력
+    ent1_value =entry1.get()
+    entry2.delete(0,END)
+    ent1_value = float(ent1_value)/1282.40
+    entry2.insert(0,ent1_value)
+  
+def ent2_get():
+    ent2_value =entry2.get()
+    entry1.delete(0,END)
+    ent2_value =float(ent2_value)*1282.40
+    entry1.insert(0,ent2_value)
+
+def clear():
+    entry1.delete(0, END)
+    entry2.delete(0, END)
+
+
+window=Tk()
+window.title("원(w) <->달러($)")
+label1 =Label(window,text="원(w)")
+label2 =Label(window,text="달러($)")
+entry1=Entry(window)
+entry2=Entry(window)
+label1.grid(row=0,column=0)
+label2.grid(row=1,column=0)
+entry1.grid(row=0,column=1)
+entry1.insert(0,"원 입력(w)")
+entry2.grid(row=1,column=1)
+entry2.insert(0,"달러입력($)")
+button1 = Button(window, text="원 ->달러",command=ent1_get)
+button2 = Button(window,text="달러 -> 원",command=ent2_get)
+button3 = Button(window, text="clear", command=clear)
+button1.grid(row=2,column=0)
+button2.grid(row=2,column=1)
+button3.grid(row=2, column=2)
 window.mainloop()
+
+
+
+
+
+
+
+
+
+
+# def convert():
+#     value = entry1.get()
+#     if value:
+#         try:
+#             value = float(value)
+#             converted_value = value / 1282.40
+#             entry2.delete(0, END)
+#             entry2.insert(0, converted_value)
+#         except ValueError:
+#             entry2.delete(0, END)
+#     else:
+#         value = entry2.get()
+#         if value:
+#             try:
+#                 value = float(value)
+#                 converted_value = value * 1282.40
+#                 entry1.delete(0, END)
+#                 entry1.insert(0, converted_value)
+#             except ValueError:
+#                 entry1.delete(0, END)
+
+# def clear():
+#     entry1.delete(0, END)
+#     entry2.delete(0, END)
+
+# window = Tk()
+# window.title("원(w) <-> 달러($)")
+
+# label1 = Label(window, text="원(w)")
+# label2 = Label(window, text="달러($)")
+# entry1 = Entry(window)
+# entry2 = Entry(window)
+# label1.grid(row=0, column=0)
+# label2.grid(row=1, column=0)
+# entry1.grid(row=0, column=1)
+# entry1.insert(0, "원 입력(w)")
+# entry2.grid(row=1, column=1)
+# entry2.insert(0, "달러 입력($)")
+# button = Button(window, text="변환", command=convert)
+# button_clear = Button(window, text="Clear", command=clear)
+# button.grid(row=2, column=0, columnspan=2, sticky="we", padx=10, pady=5)
+# button_clear.grid(row=2, column=2, padx=5, pady=5)
+
+# window.mainloop()
