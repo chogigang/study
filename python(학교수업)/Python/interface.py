@@ -685,7 +685,7 @@ button3 = Button(window, text="clear", command=clear)
 button1.grid(row=2,column=0)
 button2.grid(row=2,column=1)
 button3.grid(row=2, column=2)
-window.mainloop()
+window.mainloop()   
 
 
 

@@ -652,3 +652,32 @@ import random
 #     sum*=i
 #     i+=1
 # print(f"{sum}!")
+
+
+
+def findIndex(_list, _key):
+    for i in range(len(_list)):
+        if _list[i] == _key:
+            return i
+    return 0
+
+UserInput = input()
+
+alp = []
+cnt = []
+
+for i in range(len(UserInput)):
+    flag = False
+    for a in alp:
+        if UserInput[i] == a:
+            cnt[findIndex(alp,UserInput[i])] += 1
+            flag = True
+    if flag == False:
+        alp.append(UserInput[i])
+        cnt.append(1)
+
+for i in range(len(alp)):
+    if i == len(alp) - 1:
+        print(f"{alp[i]}는 {cnt[i]}회 나왔습니다.")
+    else:
+        print(f"{alp[i]}는 {cnt[i]}회,")
