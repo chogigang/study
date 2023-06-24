@@ -3,6 +3,7 @@
     top: 0;
     left: 0;
     z-index: 10;
+
     
 }
 #nav {
@@ -22,12 +23,16 @@
     padding: 10px 16px 10px;
 }
 .nav_wrapper li:hover{
-    background-color: #eaeaea;
+    background-color: peachpuff;
+    transform: translateX(5px);
+    transition: transform 0.3s ease;
+    
 }
 .nav_icon{
     border: none;
     background-color: transparent;
     font-size: 1.5rem;
+
 }
 .nav_menu{
     margin: 0 0 0 8px;
