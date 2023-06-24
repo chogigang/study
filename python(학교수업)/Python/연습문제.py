@@ -655,29 +655,229 @@ import random
 
 
 
-def findIndex(_list, _key):
-    for i in range(len(_list)):
-        if _list[i] == _key:
-            return i
-    return 0
+# def findIndex(_list, _key):
+#     for i in range(len(_list)):
+#         if _list[i] == _key:
+#             return i
+#     return 0
 
-UserInput = input()
+# UserInput = input()
 
-alp = []
-cnt = []
+# alp = []
+# cnt = []
 
-for i in range(len(UserInput)):
-    flag = False
-    for a in alp:
-        if UserInput[i] == a:
-            cnt[findIndex(alp,UserInput[i])] += 1
-            flag = True
-    if flag == False:
-        alp.append(UserInput[i])
-        cnt.append(1)
+# for i in range(len(UserInput)):
+#     flag = False
+#     for a in alp:
+#         if UserInput[i] == a:
+#             cnt[findIndex(alp,UserInput[i])] += 1
+#             flag = True
+#     if flag == False:
+#         alp.append(UserInput[i])
+#         cnt.append(1)
 
-for i in range(len(alp)):
-    if i == len(alp) - 1:
-        print(f"{alp[i]}는 {cnt[i]}회 나왔습니다.")
-    else:
-        print(f"{alp[i]}는 {cnt[i]}회,")
+# for i in range(len(alp)):
+#     if i == len(alp) - 1:
+#         print(f"{alp[i]}는 {cnt[i]}회 나왔습니다.")
+#     else:
+#         print(f"{alp[i]}는 {cnt[i]}회,")
+
+
+
+# list 에 30까지 5의 배수를 넣고, 합계 계산
+
+# list1=[]
+
+# sum=0
+
+# for i in range(1,31):
+#     if i%5==0:
+#         list1.append(i)
+#         sum+=i
+
+# print(f"5의 배수:{list1}")
+# print(f"5의 배수의 합:{sum}")
+
+
+#dictionary 딕셔너리에 주사위 1000번 굴린 갯수 계산
+# di ={'눈금1':0,'눈금2':0,'눈금3':0,'눈금4':0,'눈금5':0,'눈금6':0}
+
+
+# for i in range (0,1000): 
+#     random_val =random.randrange(1,7)
+#     match random_val:
+#         case 1 :
+#             di ['눈금1'] +=1
+           
+#         case 2 :
+#             di['눈금2'] +=1
+            
+#         case 3 :
+#             di['눈금3'] +=1
+            
+#         case 4 :
+#             di['눈금4'] +=1
+            
+#         case 5 :
+#             di['눈금5'] +=1
+            
+#         case 6 :
+#             di['눈금6']+=1
+           
+
+# di={1:0,2:0,3:0,4:0,5:0,6:0}
+
+# for i in range(0,1001):
+#     di[random.randrange(1,7)]+=1
+
+# print(di)
+
+
+# from tkinter import*
+# from tkinter import messagebox
+
+# def ent1_get():   # 엔트리 1값을 엔트리 2에 출력
+#     ent1_value = entry1.get()  # entry1의 입력 값을 가져옴
+#     entry2.delete(0, END)  # entry2의 내용을 삭제
+#     ent1_value = float(ent1_value) / 1290.30  # 입력 값을 1290.30으로 나눔 (원을 달러로 변환)
+#     entry2.insert(0, ent1_value)  # entry2에 변환된 값을 삽입
+
+# def ent2_get():
+#     ent2_value = entry2.get()  # entry2의 입력 값을 가져옴
+#     entry1.delete(0, END)  # entry1의 내용을 삭제
+#     ent2_value = float(ent2_value) * 1290.30  # 입력 값을 1290.30으로 곱함 (달러를 원으로 변환)
+#     entry1.insert(0, ent2_value)  # entry1에 변환된 값을 삽입
+
+# def clear():
+#     entry1.delete(0, END)  # entry1의 내용을 삭제
+#     entry2.delete(0, END)  # entry2의 내용을 삭제
+
+
+# window = Tk()
+# window.title("원(w) <-> 달러($)")
+# label1 = Label(window, text="원(w)")  # "원(w)" 라벨 생성
+# label2 = Label(window, text="달러($)")  # "달러($)" 라벨 생성
+# entry1 = Entry(window)  # 입력창1 생성
+# entry2 = Entry(window)  # 입력창2 생성
+# label1.grid(row=0, column=0)  # "원(w)" 라벨을 그리드에 배치 (0행, 0열)
+# label2.grid(row=1, column=0)  # "달러($)" 라벨을 그리드에 배치 (1행, 0열)
+# entry1.grid(row=0, column=1)  # 입력창1을 그리드에 배치 (0행, 1열)
+# entry1.insert(0, "원 입력(w)")  # 입력창1에 기본 힌트 텍스트 "원 입력(w)" 삽입
+# entry2.grid(row=1, column=1)  # 입력창2를 그리드에 배치 (1행, 1열)
+# entry2.insert(0, "달러 입력($)")  # 입력창2에 기본 힌트 텍스트 "달러 입력($)" 삽입
+# button1 = Button(window, text="원 -> 달러", command=ent1_get)  # "원 -> 달러" 버튼 생성 및 클릭 시 ent1_get 함수 실행
+# button2 = Button(window, text="달러 -> 원", command=ent2_get)  # "달러 -> 원" 버튼 생성 및 클릭 시 ent2_get 함수 실행
+# button3 = Button(window, text="clear", command=clear)  # "clear" 버튼 생성 및 클릭 시 clear 함수 실행
+# button1.grid(row=2, column=0)  # "원 -> 달러" 버튼을 그리드에 배치 (2행, 
+# button2.grid(row=2, column=1) # "달러 ->원 " 버튼을 그리드에 배치 
+# button3.grid(row=2, column=2) # 삭제 버튼 
+# window.mainloop()
+
+
+# from tkinter import*
+
+# def entry1_get():
+#     entry_val = Entry1.get()
+#     Entry2.delete(0,END)
+#     entry_val=float(entry_val)/1290.30
+#     Entry2.insert(0,entry_val)
+
+# def entry2_get():
+#     entry_val =Entry2.get()
+#     Entry1.delete(0,END)
+#     entry_val=float(entry_val)*1290.30
+#     Entry1.insert(0,entry_val)
+# def clear():
+#     Entry1.delete(0,END)
+#     Entry2.delete(0,END)
+
+# window =Tk()
+# window.title("원 <-> 달러")
+# Label1 =Label(window, text="원(w)")
+# Label2 =Label(window,text="달러($)")
+# Entry1=Entry(window)
+# Entry2=Entry(window)
+# Label1.grid(row=0,column=0)
+# Entry1.grid(row=0,column=1)
+# Entry1.insert(0,"원 입력(w)")
+# Label2.grid(row=1,column=0)
+# Entry2.grid(row=1,column=1)
+# Entry2.insert(0,"달러입력($)")
+# Button1=Button(window,text="원->달러",command=entry1_get)
+# Button2=Button(window,text="달러->원",command=entry2_get)
+# Button3=Button(window,text="지우기",command=clear)
+# Button1.grid(row=2,column=0)
+# Button2.grid(row=2,column=1)
+# Button3.grid(row=2,column=2)
+# window.mainloop()
+
+
+
+# 30 list 에 30까지 5의 배수를 넣고  합계 계산
+
+
+# list1=[]
+
+# sum=0
+
+
+# for i in range(0,31):
+#     if(i%5==0):
+#         list.append(i)
+#         sum+=i
+
+# print(list1)
+
+
+# cur_price = {'Daum KAKAO': 80000, 'naver':800000, 'daeshin':30000,'test':80000}
+# cur_price.keys()
+# print(cur_price.keys())
+# print(cur_price.values())
+
+
+# 달러에서 원화를 바꾸는 tk인터페이스  구현
+
+# import random
+# dice={1:0,2:0,3:0,4:0,5:0,6:0}
+
+
+# for i in range(1,1001):
+#     dice[random.randrange(1,7)]+=1
+
+
+# print("주사위 눈금 사용 횟수")
+# print(dice)
+
+
+from tkinter import*
+
+def won_dal():
+    entry_val=Entry1.get()
+    Entry2.delete(0,END)
+    entry_val=float(entry_val)/1270
+    Entry2.insert(0,entry_val)
+
+def dal_won():
+    entry_val=Entry2.get()
+    Entry1.delete(0,END)
+    entry_val=float(entry_val)*1270
+    Entry1.insert(0,entry_val)
+window= Tk()
+window.geometry("500x500")
+Label1=Label(text="원")
+Label1.grid(row=0,column=0)
+Label2=Label(text="달러")
+Label2.grid(row=1,column=0)
+Entry1=Entry(window)
+Entry2=Entry(window)
+Entry1.grid(row=0,column=1)
+Entry2.grid(row=1,column=1)
+Entry1.insert(0,"원 값을 입력")
+Entry2.insert(0,"달러 값을 입력")
+Button1=Button(text="원->달러",command=won_dal)
+Button2=Button(text="달러->원",command=dal_won)
+Button1.grid(row=2,column=0)
+Button2.grid(row=2,column=2)
+window.mainloop()
+
+

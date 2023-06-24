@@ -650,50 +650,41 @@ import random
 
 
 
-def ent1_get():   #  엔트리 1값을 엔트리 2  에 출력
-    ent1_value =entry1.get()
-    entry2.delete(0,END)
-    ent1_value = float(ent1_value)/1282.40
-    entry2.insert(0,ent1_value)
-  
+def ent1_get():   # 엔트리 1값을 엔트리 2에 출력
+    ent1_value = entry1.get()  # entry1의 입력 값을 가져옴
+    entry2.delete(0, END)  # entry2의 내용을 삭제
+    ent1_value = float(ent1_value) / 1282.40  # 입력 값을 1282.40으로 나눔 (원을 달러로 변환)
+    entry2.insert(0, ent1_value)  # entry2에 변환된 값을 삽입
+
 def ent2_get():
-    ent2_value =entry2.get()
-    entry1.delete(0,END)
-    ent2_value =float(ent2_value)*1282.40
-    entry1.insert(0,ent2_value)
+    ent2_value = entry2.get()  # entry2의 입력 값을 가져옴
+    entry1.delete(0, END)  # entry1의 내용을 삭제
+    ent2_value = float(ent2_value) * 1282.40  # 입력 값을 1282.40으로 곱함 (달러를 원으로 변환)
+    entry1.insert(0, ent2_value)  # entry1에 변환된 값을 삽입
 
 def clear():
-    entry1.delete(0, END)
-    entry2.delete(0, END)
+    entry1.delete(0, END)  # entry1의 내용을 삭제
+    entry2.delete(0, END)  # entry2의 내용을 삭제
 
 
-window=Tk()
-window.title("원(w) <->달러($)")
-label1 =Label(window,text="원(w)")
-label2 =Label(window,text="달러($)")
-entry1=Entry(window)
-entry2=Entry(window)
-label1.grid(row=0,column=0)
-label2.grid(row=1,column=0)
-entry1.grid(row=0,column=1)
-entry1.insert(0,"원 입력(w)")
-entry2.grid(row=1,column=1)
-entry2.insert(0,"달러입력($)")
-button1 = Button(window, text="원 ->달러",command=ent1_get)
-button2 = Button(window,text="달러 -> 원",command=ent2_get)
-button3 = Button(window, text="clear", command=clear)
-button1.grid(row=2,column=0)
-button2.grid(row=2,column=1)
-button3.grid(row=2, column=2)
-window.mainloop()   
-
-
-
-
-
-
-
-
+window = Tk()
+window.title("원(w) <-> 달러($)")
+window.geometry("500x500")
+label1 = Label(window, text="원(w)")  # "원(w)" 라벨 생성
+label2 = Label(window, text="달러($)")  # "달러($)" 라벨 생성
+entry1 = Entry(window)  # 입력창1 생성
+entry2 = Entry(window)  # 입력창2 생성
+label1.grid(row=0, column=0)  # "원(w)" 라벨을 그리드에 배치 (0행, 0열)
+label2.grid(row=1, column=0)  # "달러($)" 라벨을 그리드에 배치 (1행, 0열)
+entry1.grid(row=0, column=1)  # 입력창1을 그리드에 배치 (0행, 1열)
+entry1.insert(0, "원 입력(w)")  # 입력창1에 기본 힌트 텍스트 "원 입력(w)" 삽입
+entry2.grid(row=1, column=1)  # 입력창2를 그리드에 배치 (1행, 1열)
+entry2.insert(0, "달러 입력($)")  # 입력창2에 기본 힌트 텍스트 "달러 입력($)" 삽입
+button1 = Button(window, text="원 -> 달러", command=ent1_get)  # "원 -> 달러" 버튼 생성 및 클릭 시 ent1_get 함수 실행
+button2 = Button(window, text="달러 -> 원", command=ent2_get)  # "달러 -> 원" 버튼 생성 및 클릭 시 ent2_get 함수 실행
+button3 = Button(window, text="clear", command=clear)  # "clear" 버튼 생성 및 클릭 시 clear 함수 실행
+button1.grid(row=2, column=0)  # "원 -> 달러" 버튼을 그리드에 배치 (2행, 
+window.mainloop()
 
 
 # def convert():
@@ -740,3 +731,54 @@ window.mainloop()
 # button_clear.grid(row=2, column=2, padx=5, pady=5)
 
 # window.mainloop()
+
+
+# window = Tk()
+
+# window.title("계산기")
+# window.geometry("300x300")
+# window.resizable(width=False,height=False)
+
+# def button(_arg):
+#     if EditEntry2.get() == "":
+#         if _arg == "C":
+#             EditEntry1.delete(0,END)
+
+#         elif _arg == "=":
+#             result = eval(EditEntry1.get())
+#             EditEntry2.delete(0,END)
+#             EditEntry2.insert(END,result)
+#         else:
+#             EditEntry1.insert(END,_arg)
+#     else:
+#         EditEntry1.delete(0,END)
+#         EditEntry1.insert(END,EditEntry2.get() + _arg)
+#         EditEntry2.delete(0,END)
+#     return
+
+# numList = [i for i in range(1,10)]
+# charList = ["+","-","","/","C","="]
+# allList = numList + charList
+# print(allList)
+# buttonList = [Button(window,text=f"{i}",\
+#                      command=lambda x = i : button(x)) \
+#               for i in allList]
+
+# for i in range(len(numList)):
+#     posX = int(i%3) 20
+#     posY = int(i / 3) * 40
+#     buttonList[i].place(x=posX,y=posY + 55)
+
+# count = 0
+# for i in range(len(numList),len(numList) + len(charList)):
+#     buttonList[i].place(x=count * 20,y=180)
+#     count += 1
+
+# EditEntry1 = Entry(window,text="")
+# EditEntry1.place(x=0,y=0)
+# EditEntry2 = Entry(window,text="")
+# EditEntry2.place(x=0,y=30)
+# window.mainloop()
+
+
+

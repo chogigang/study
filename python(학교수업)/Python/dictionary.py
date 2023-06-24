@@ -116,8 +116,6 @@
 #             di['눈금6']+=1
            
 
-
-
         
 # print(di)
     
@@ -131,14 +129,6 @@
     
 # for i in dic_di.keys():
 #         print(f"{i}==>{dic_di[i]}")
-
-
-
-
-
-
-
-
 
 
 
