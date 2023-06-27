@@ -580,6 +580,8 @@ import random
 # sel_com=random.randrange(1,4)
 # game(sel_com,sel_me)
 
+
+
 # def game():
 #     me = var.get()
 #     com = random.randint(1,3)
@@ -650,41 +652,41 @@ import random
 
 
 
-def ent1_get():   # 엔트리 1값을 엔트리 2에 출력
-    ent1_value = entry1.get()  # entry1의 입력 값을 가져옴
-    entry2.delete(0, END)  # entry2의 내용을 삭제
-    ent1_value = float(ent1_value) / 1282.40  # 입력 값을 1282.40으로 나눔 (원을 달러로 변환)
-    entry2.insert(0, ent1_value)  # entry2에 변환된 값을 삽입
+# def ent1_get():   # 엔트리 1값을 엔트리 2에 출력
+#     ent1_value = entry1.get()  # entry1의 입력 값을 가져옴
+#     entry2.delete(0, END)  # entry2의 내용을 삭제
+#     ent1_value = float(ent1_value) / 1282.40  # 입력 값을 1282.40으로 나눔 (원을 달러로 변환)
+#     entry2.insert(0, ent1_value)  # entry2에 변환된 값을 삽입
 
-def ent2_get():
-    ent2_value = entry2.get()  # entry2의 입력 값을 가져옴
-    entry1.delete(0, END)  # entry1의 내용을 삭제
-    ent2_value = float(ent2_value) * 1282.40  # 입력 값을 1282.40으로 곱함 (달러를 원으로 변환)
-    entry1.insert(0, ent2_value)  # entry1에 변환된 값을 삽입
+# def ent2_get():
+#     ent2_value = entry2.get()  # entry2의 입력 값을 가져옴
+#     entry1.delete(0, END)  # entry1의 내용을 삭제
+#     ent2_value = float(ent2_value) * 1282.40  # 입력 값을 1282.40으로 곱함 (달러를 원으로 변환)
+#     entry1.insert(0, ent2_value)  # entry1에 변환된 값을 삽입
 
-def clear():
-    entry1.delete(0, END)  # entry1의 내용을 삭제
-    entry2.delete(0, END)  # entry2의 내용을 삭제
+# def clear():
+#     entry1.delete(0, END)  # entry1의 내용을 삭제
+#     entry2.delete(0, END)  # entry2의 내용을 삭제
 
 
-window = Tk()
-window.title("원(w) <-> 달러($)")
-window.geometry("500x500")
-label1 = Label(window, text="원(w)")  # "원(w)" 라벨 생성
-label2 = Label(window, text="달러($)")  # "달러($)" 라벨 생성
-entry1 = Entry(window)  # 입력창1 생성
-entry2 = Entry(window)  # 입력창2 생성
-label1.grid(row=0, column=0)  # "원(w)" 라벨을 그리드에 배치 (0행, 0열)
-label2.grid(row=1, column=0)  # "달러($)" 라벨을 그리드에 배치 (1행, 0열)
-entry1.grid(row=0, column=1)  # 입력창1을 그리드에 배치 (0행, 1열)
-entry1.insert(0, "원 입력(w)")  # 입력창1에 기본 힌트 텍스트 "원 입력(w)" 삽입
-entry2.grid(row=1, column=1)  # 입력창2를 그리드에 배치 (1행, 1열)
-entry2.insert(0, "달러 입력($)")  # 입력창2에 기본 힌트 텍스트 "달러 입력($)" 삽입
-button1 = Button(window, text="원 -> 달러", command=ent1_get)  # "원 -> 달러" 버튼 생성 및 클릭 시 ent1_get 함수 실행
-button2 = Button(window, text="달러 -> 원", command=ent2_get)  # "달러 -> 원" 버튼 생성 및 클릭 시 ent2_get 함수 실행
-button3 = Button(window, text="clear", command=clear)  # "clear" 버튼 생성 및 클릭 시 clear 함수 실행
-button1.grid(row=2, column=0)  # "원 -> 달러" 버튼을 그리드에 배치 (2행, 
-window.mainloop()
+# window = Tk()
+# window.title("원(w) <-> 달러($)")
+# window.geometry("500x500")
+# label1 = Label(window, text="원(w)")  # "원(w)" 라벨 생성
+# label2 = Label(window, text="달러($)")  # "달러($)" 라벨 생성
+# entry1 = Entry(window)  # 입력창1 생성
+# entry2 = Entry(window)  # 입력창2 생성
+# label1.grid(row=0, column=0)  # "원(w)" 라벨을 그리드에 배치 (0행, 0열)
+# label2.grid(row=1, column=0)  # "달러($)" 라벨을 그리드에 배치 (1행, 0열)
+# entry1.grid(row=0, column=1)  # 입력창1을 그리드에 배치 (0행, 1열)
+# entry1.insert(0, "원 입력(w)")  # 입력창1에 기본 힌트 텍스트 "원 입력(w)" 삽입
+# entry2.grid(row=1, column=1)  # 입력창2를 그리드에 배치 (1행, 1열)
+# entry2.insert(0, "달러 입력($)")  # 입력창2에 기본 힌트 텍스트 "달러 입력($)" 삽입
+# button1 = Button(window, text="원 -> 달러", command=ent1_get)  # "원 -> 달러" 버튼 생성 및 클릭 시 ent1_get 함수 실행
+# button2 = Button(window, text="달러 -> 원", command=ent2_get)  # "달러 -> 원" 버튼 생성 및 클릭 시 ent2_get 함수 실행
+# button3 = Button(window, text="clear", command=clear)  # "clear" 버튼 생성 및 클릭 시 clear 함수 실행
+# button1.grid(row=2, column=0)  # "원 -> 달러" 버튼을 그리드에 배치 (2행, 
+# window.mainloop()
 
 
 # def convert():
@@ -781,4 +783,6 @@ window.mainloop()
 # window.mainloop()
 
 
-
+# scis = Radiobutton(window, text="가위",variable=var,value=1,command=game).grid(row=1,column=0)
+# rock = Radiobutton(window, text="바위",variable=var,value=2,command=game).grid(row=2,column=0)
+# pape = Radiobutton(window, text="보",variable=var,value=3,command=game).grid(row=3,column=0)

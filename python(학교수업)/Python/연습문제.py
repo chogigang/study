@@ -849,35 +849,165 @@ import random
 # print(dice)
 
 
-from tkinter import*
+# from tkinter import*
 
-def won_dal():
-    entry_val=Entry1.get()
-    Entry2.delete(0,END)
-    entry_val=float(entry_val)/1270
-    Entry2.insert(0,entry_val)
+# def won_dal():
+#     entry_val=Entry1.get()
+#     Entry2.delete(0,END)
+#     entry_val=float(entry_val)/1270
+#     Entry2.insert(0,entry_val)
 
-def dal_won():
-    entry_val=Entry2.get()
-    Entry1.delete(0,END)
-    entry_val=float(entry_val)*1270
-    Entry1.insert(0,entry_val)
-window= Tk()
-window.geometry("500x500")
-Label1=Label(text="원")
-Label1.grid(row=0,column=0)
-Label2=Label(text="달러")
-Label2.grid(row=1,column=0)
-Entry1=Entry(window)
-Entry2=Entry(window)
-Entry1.grid(row=0,column=1)
-Entry2.grid(row=1,column=1)
-Entry1.insert(0,"원 값을 입력")
-Entry2.insert(0,"달러 값을 입력")
-Button1=Button(text="원->달러",command=won_dal)
-Button2=Button(text="달러->원",command=dal_won)
-Button1.grid(row=2,column=0)
-Button2.grid(row=2,column=2)
-window.mainloop()
+# def dal_won():
+#     entry_val=Entry2.get()
+#     Entry1.delete(0,END)
+#     entry_val=float(entry_val)*1270
+#     Entry1.insert(0,entry_val)
+# window= Tk()
+# window.geometry("500x500")
+# Label1=Label(text="원")
+# Label1.grid(row=0,column=0)
+# Label2=Label(text="달러")
+# Label2.grid(row=1,column=0)
+# Entry1=Entry(window)
+# Entry2=Entry(window)
+# Entry1.grid(row=0,column=1)
+# Entry2.grid(row=1,column=1)
+# Entry1.insert(0,"원 값을 입력")
+# Entry2.insert(0,"달러 값을 입력")
+# Button1=Button(text="원->달러",command=won_dal)
+# Button2=Button(text="달러->원",command=dal_won)
+# Button1.grid(row=2,column=0)
+# Button2.grid(row=2,column=2)
+# window.mainloop()
 
 
+
+# from tkinter import*
+
+# #환율 1270
+
+# def won_dal():
+#     Entry_val=Entry1.get()
+#     Entry2.delete(0,END)
+#     Entry_val=float(Entry_val)/1270
+#     Entry2.insert(0,Entry_val)
+
+# def dal_won():
+#     Entry_val=Entry2.get()
+#     Entry1.delete(0,END)
+#     Entry_val=float(Entry_val)/1270
+#     Entry1.insert(0,Entry_val)
+
+# window=Tk()
+# window.title('원->달러')
+# window.geometry('500x500')
+# window.resizable(False,False)
+# Label1=Label(text="원")
+# Label1.grid(row=0,column=0)
+# Label2=Label(text="달러")
+# Label2.grid(row=1,column=0)
+# Entry1=Entry(window)
+# Entry1.insert(0,"원 값을 입력")
+# Entry1.grid(row=0,column=1) 
+# Entry2=Entry(window)
+# Entry2.insert(0,'달러 값을 입력')
+# Entry2.grid(row=1,column=1)
+# Button1=Button(text="원->달러",command=won_dal)
+# Button2=Button(text="원->달러",command=dal_won)
+# Button1.grid(row=2,column=0)
+# Button2.grid(row=2,column=1)
+# window.mainloop()
+
+
+
+# 주사위 눈금 렌덤 출력
+
+
+# import random
+
+# dice={1:0,2:0,3:0,4:0,5:0,6:0}
+
+
+# for i in range(0,1001):
+#     dice[random.randrange(1,7)]+=1
+
+
+# print("주사위 눈금 1000번 돌린 결과")
+# print(dice)
+
+# from tkinter import*
+
+# def won_dal():
+#     Entry_val=Entry1.get()
+#     Entry2.delete()
+#     Entry_val=float(Entry1)/1270
+#     Entry2.insert(0,Entry_val)
+
+# def dal_won():
+#     Entry_val=Entry2.get()
+#     Entry1.delete()
+#     Entry_val=float(Entry2)/1270
+#     Entry2.insert(0,Entry_val)
+
+# window=Tk()
+# window.title('원<->달러')
+# window.geometry('500x500')
+# Label1=Label(text="원")
+# Label2=Label(text="달러")
+# Label1.grid(row=0,column=0)
+# Label2.grid(row=1,column=0)
+# Entry1=Entry(window)
+# Entry2=Entry(window)
+# Entry1.insert(0,"원화 입력")
+# Entry2.insert(0,"달러 입력")
+# Entry1.grid(row=0,column=1)
+# Entry2.grid(row=1,column=1)
+# Button1=Button(text='원->달러',command=won_dal)
+# Button1.grid(row=2,column=0)
+# Button2=Button(text='달러->원',command=dal_won)
+# Button2.grid(row=2,column=1)
+# window.mainloop()
+
+
+
+
+
+
+# =를 입력하기전까지 계속 더하는 문제
+
+# sum=0
+# while(True):
+#     num=input('더할값을 입력하세요:')
+#     if(num=='='):
+#             break
+#     else:
+#           sum+=int(num)
+
+# print(f'총 더한값:{sum}')
+
+
+# 5번의 정수를 입력을 받아 리스트에 넣은후 리스트의 총합,평균을 구하시오
+
+
+# list1=[]
+# sum=0
+# for i in range(0,5):
+#   num= int(input('정수를 입력하세요: '))
+#   list1.append(num)
+#   sum+=num
+
+# print(f'총합: {sum}')
+# print(f'평균: {sum/5}')
+
+#2번 입력을 받아서 첫번째 정수는 몇번 반복할지 두번째 정수는 몇의 배수를 참고할지 입력받고 최대수까지 몇배수를 총 더한 값을 출력
+
+
+# a=int(input('첫번째 정수를 입력하세요: '))
+# b=int(input('두번째 정수를 입력하세요: '))
+# sum=0
+
+# for i in range(0,a+1):
+#     if(i%b==0):
+#         sum+=i
+
+# print(f'{a}번 반복하였으며 그안의 {b}의 배수 총 합은 {sum}입니다.')
