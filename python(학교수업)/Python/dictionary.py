@@ -132,3 +132,23 @@
 
 
 
+
+# target_value = '값2'
+# target_keys = []
+
+# for key, value in dictionary.items():
+#     if value == target_value:
+#         target_keys.append(key)
+
+# print(target_keys)  # 출력: ['키2']
+
+# and
+
+
+
+# target_value = '값2'
+# target_keys = [key for key, value in dictionary.items() if value == target_value]
+
+# print(target_keys)  # 출력: ['키2']
+
+# 딕셔너리 밸류 값으로 키값 찾는 설명 기존에는 지원하지 않지만 억지로 찾는다면 이런 구조로 찾아야함.
