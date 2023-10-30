@@ -45,41 +45,41 @@
 
 
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int main() {
-    int sum = 0;
-    int a = 1;
-    int sum1 = 0;
-    int b = 1;
-    int sum2 = 0;
-    int c = 1;
+// int main() {
+//     int sum = 0;
+//     int a = 1;
+//     int sum1 = 0;
+//     int b = 1;
+//     int sum2 = 0;
+//     int c = 1;
 
-    do {
-        sum += a;
-        a=a+1;
-    } while (a <= 100);
+//     do {
+//         sum += a;
+//         a=a+1;
+//     } while (a <= 100);
 
-    do {
-        if (b % 2 == 0) {
-            sum1 += b;
-        }
-        b=b+1;
-    } while (b <= 100);
+//     do {
+//         if (b % 2 == 0) {
+//             sum1 += b;
+//         }
+//         b=b+1;
+//     } while (b <= 100);
 
-    do {
-        if (c % 3 == 0) {
-            sum2 += c;
-        }
-        c=c+1;
-    } while (c <= 100);
+//     do {
+//         if (c % 3 == 0) {
+//             sum2 += c;
+//         }
+//         c=c+1;
+//     } while (c <= 100);
 
-    printf("1부터 100까지의 수를 더한 결과: %d\n", sum);
-    printf("1부터 100까지의 짝수를 더한 결과: %d\n", sum1);
-    printf("1부터 100까지의 3의 배수를 더한 결과: %d\n", sum2);
+//     printf("1부터 100까지의 수를 더한 결과: %d\n", sum);
+//     printf("1부터 100까지의 짝수를 더한 결과: %d\n", sum1);
+//     printf("1부터 100까지의 3의 배수를 더한 결과: %d\n", sum2);
 
-    return 0;
-}
+//     return 0;
+// }
 
 //
 //  main.cpp
@@ -486,6 +486,7 @@ int main() {
 //    } //else 중괄호
 //}
 
+//----------------------------------------------
 
 //2회차
 
@@ -842,3 +843,186 @@ int main() {
 //        
 //    }
 //}
+
+//1  a=1
+//2. b=0
+
+//3. b<20
+
+ //문제 1. 1+2+4+7+11+16+22..... 20 번 항까지의 합계
+//int main(){
+//    
+//    int sum=0;
+//    int a=1;
+//    int b=0;
+//    
+//    do{
+//        a=a+b;
+//        b=b+1;
+//        sum+=a;
+//        
+//    }while(b<20);{}
+//    printf("%d",sum);
+//    
+//}
+//출력값 1350
+
+
+//2번문제
+//1+3+6+10+15+21......10번항 까지 합계 구하는 순서도
+
+// 1. b=2;
+ //2. sum=sum+a;
+//3. b-2<10;
+//int main(){
+//    int sum =0;
+//    int a=1;
+//    int b=2;
+//    
+//    do{
+//        sum+=a;
+//        a=a+b;
+//        b=b+1;
+//        
+//    }while(b-2<10);{}
+//
+//    printf("%d",sum);
+//    
+//}
+
+//출력 220
+
+
+// 3번 문제
+// 임의의. 정수 A를 입력받아 소수를 출력하는 순서도
+
+// 1번 b=1;
+//. 2번 b+1;
+//3.   MOD(a,b)==0;
+
+//int main(){
+//    int a;
+//    int b=1;
+//    scanf("%d",&a);
+//    printf("정수를 입력하세요: ");
+//    do{
+//        ++b;
+//    
+//        
+//        
+//    }while(a%b!=0);{}
+//    if(a==b){
+//        printf("소수");
+//    }else{
+//        printf("소수아님");
+//    }
+//    
+//}
+
+//4번문제
+// 1-2+3-4+5-6......+99-100
+
+// 1. sum=sum+a;
+// 2. sw=1;
+// 3. sum-=a;
+// 4. sw=0;
+
+
+//int main(){
+//    
+//    int sum=0;
+//    int a=0;
+//    int sw=0;
+//    
+//    do{
+//        a=a+1;
+//        if(sw==0){
+//            sum+=a;
+//            sw=1;
+//        }else{
+//            sum-=a;
+//            sw=0;
+//        }
+//        
+//    }while(a<100);{}
+//    printf("%d",sum);
+//}
+
+
+
+
+
+//5번 문제
+
+//1!+2!+3!+4!+5!.........+10! 를 구하라
+
+//1. c=0;
+//2. a=1;
+//3. b=0;
+//4. a=a*b;
+//5. b<c;
+
+
+//int main(){
+//    int sum=0;
+//    int a=1; //전체 팩토리얼
+//    int b=0; //a를 곱할때 사용하는 변수
+//    int c=0; //전체 카운터
+//    
+//    do{
+//        c=c+1;
+//        a=1;
+//        b=0;
+//        do{
+//            b=b+1;
+//            a=a*b;
+//        }while(b<c);{}
+//        sum=sum+a;
+//    }while(c<10);{}
+//    
+//    printf("%d",sum);
+//}
+
+ //출력값 :4037913
+
+
+
+//6번 문제
+
+//두수를 입력받아 두수 의 최대공략수 최소 공배수를 계산해서 출력하는 코드
+
+
+
+int main(){
+    int a,b; //입력값
+    int c;//  임시변수
+    int remainder =0; //임시변수2
+    int LCM;//최대 공약수
+    int GCD;//최소 공배수
+    
+    printf("정수입력: ");
+    scanf("%d",&a);
+    scanf("%d",&b);
+    c=a*b;
+    if(a<b){
+        GCD=a; //작은값을 최대 공약수에 삽입 임시로 넣음
+        a=b; //큰값을 a
+        b=GCD; //작은값을 임시변수에 있던걸 넣어주기
+    }
+    remainder=a%b;
+    
+    while(remainder!=0){
+        a=b; //작은값을 a
+        b=remainder; //b에다가 나눈 나머지 값
+        remainder=a%b;
+    }
+    GCD=b; //작은값에 GCD 입력
+    LCM=c/GCD; //LCM에   c나누기 GCD
+    
+    
+    printf("GCD : %d", GCD);
+    printf("LCM %d",LCM);
+}
+
+
+
