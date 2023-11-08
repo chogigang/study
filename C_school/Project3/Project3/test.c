@@ -993,36 +993,365 @@
 
 
 
-int main(){
-    int a,b; //입력값
-    int c;//  임시변수
-    int remainder =0; //임시변수2
-    int LCM;//최대 공약수
-    int GCD;//최소 공배수
+// int main(){
+//     int a,b; //입력값
+//     int c;//  임시변수
+//     int remainder =0; //임시변수2
+//     int LCM;//최대 공약수
+//     int GCD;//최소 공배수
     
-    printf("정수입력: ");
-    scanf("%d",&a);
-    scanf("%d",&b);
-    c=a*b;
-    if(a<b){
-        GCD=a; //작은값을 최대 공약수에 삽입 임시로 넣음
-        a=b; //큰값을 a
-        b=GCD; //작은값을 임시변수에 있던걸 넣어주기
-    }
-    remainder=a%b;
+//     printf("정수입력: ");
+//     scanf("%d",&a);
+//     scanf("%d",&b);
+//     c=a*b;
+//     if(a<b){
+//         GCD=a; //작은값을 최대 공약수에 삽입 임시로 넣음
+//         a=b; //큰값을 a
+//         b=GCD; //작은값을 임시변수에 있던걸 넣어주기
+//     }
+//     remainder=a%b;
     
-    while(remainder!=0){
-        a=b; //작은값을 a
-        b=remainder; //b에다가 나눈 나머지 값
-        remainder=a%b;
-    }
-    GCD=b; //작은값에 GCD 입력
-    LCM=c/GCD; //LCM에   c나누기 GCD
+//     while(remainder!=0){
+//         a=b; //작은값을 a
+//         b=remainder; //b에다가 나눈 나머지 값
+//         remainder=a%b;
+//     }
+//     GCD=b; //작은값에 GCD 입력
+//     LCM=c/GCD; //LCM에   c나누기 GCD
     
     
-    printf("GCD : %d", GCD);
-    printf("LCM %d",LCM);
-}
+//     printf("GCD : %d", GCD);
+//     printf("LCM %d",LCM);
+// }
+
+
+
+//int main(){
+//    int *a,b;
+//    
+//    a=&b;
+//    b=1;
+//    printf("%p\n",a);
+//    *a++;
+//    printf("%d %p %d",b,a,*a);
+//    
+//    
+//}
+// //출력값 : x16fdff2c4
+//// 1 0x16fdff2c8 1876947656
+//
+//
+//
+//
+//int main(){
+//    int *a,b;
+//    a=&b;
+//    b=1;
+//    printf("%p\n",a);
+//    
+//    (*a)++;
+//    printf("%d %p %d",b,a,*a);
+//    
+//    
+//}
+//// 출력값 0x16fdff2c4
+// //2 0x16fdff2c4 2
+//
+//
+//
+//
+//int main(){
+//    int *a,b;
+//    a=&b;
+//    b=1;
+//    printf("%p\n",a);
+//    
+//    ++*a;
+//    printf("%d %p %d",b,a,*a);
+//    
+//    
+//}
+//
+////출력값 0x16fdff2c4
+////2 0x16fdff2c4 2
+
+
+
+//1부터 100까지 수 중에서 5의 배수의 개수와 합을 구하는 문제
+
+
+// for 문 사용
+//int main(){
+//    
+//    int cnt=0; //개수 변수
+//    int sum=0; //합계 변수
+//    int i=1; //1~100 변수
+//    
+//    for(int i=1;i<=100;i++){
+//        if(i%5==0){
+//            sum+=i;
+//            cnt=cnt+1;
+//        }
+//        
+//    }
+//    
+//    printf("합계: %d 5의 배수 개수: %d",sum,cnt);
+//    
+//}
+
+
+
+//int main(){
+//    int cnt=0;
+//    int sum=0;
+//    int i=0;
+//    
+//    do{
+//        i=i+1;
+//        if(i%5==0){
+//            cnt=cnt+1;
+//            sum=sum+i;
+//        }
+//        
+//        
+//    }while(i<100);{
+//        
+//    }
+//    
+//    printf("합계: %d 5의 배수 개수: %d",sum,cnt);
+//}
+
+
+//10개의 양의 정수를 입력받아 배열에 저장한후 저장된 자료 중 7에 가장 가까운 자료를 찾는 순서도
+
+//int main(){
+//    int a[10];// 입력받은 변수
+//    int dif=0; // 두수의 차
+//    int s_dif=999;// 두수의 차이 중 가장 작은 값
+//    int b=0; // 가장 가까운 수 저장 변수
+//    
+//    for (int i=0;i<10;i++){
+//        printf("정수를 입력하세요: ");
+//        scanf("%d",&a[i]);
+//        
+//    }
+//    
+//    
+//    for(int j=0;j<10;j++){
+//        dif=a[j]-7;
+//        if(dif<0){
+//            dif=dif*-1;
+//        }
+//        if(dif<s_dif){
+//            s_dif=dif;
+//            b=a[j];
+//        }
+//      
+//    }
+//    
+//    
+//    printf("가장 작은수: %d",b);
+//}
+
+
+
+
+
+// 중복된 값이 나오게 하기
+
+//int main() {
+//    int a[10];   // 입력 변수
+//    int dif = 0;  // 두 수의 차
+//    int s_dif = 36000000; // 두 수의 차이 중 가장 작은 값
+//    int b = 0;  // 가장 가까운 수 저장 변수
+//    int c[10];  // 가장 가까운 수들을 저장할 배열
+//    int cnt = 0;  // c 배열 인덱스에 사용될 변수
+//
+//    for (int i = 0; i < 10; i++) {
+//        printf("정수를 입력하세요: ");
+//        scanf("%d", &a[i]);
+//    }
+//
+//    for (int j = 0; j < 10; j++) {
+//        dif = a[j] - 7;
+//        if (dif < 0) {
+//            dif = -dif;
+//        }
+//        if (dif == s_dif) {
+//            c[cnt] = a[j];
+//            cnt++;
+//        }
+//        if (dif < s_dif) {
+//            s_dif = dif;
+//            b = a[j];
+//            // 새로운 최소값을 찾았으므로 c 배열 초기화
+//            cnt = 0;
+//            c[cnt] = b;
+//            cnt++;
+//        }
+//    }
+//
+//    printf("가장 작은 수 출력\n");
+//    for (int k = 0; k < cnt; k++) {
+//        printf("%d ", c[k]);
+//    }
+//    
+//  
+//}
+
+
+
+
+
+
+//버블 정렬
+//10개의 숫자를 입력받아 배열에 저장한 후 저장된 자료를 오름차순으로 정렬
+
+
+
+//int main() {
+//    int i = 0;
+//    int j = 0;
+//    int a[10];
+//    int temp = 0; //임시 변수
+//
+//    for (i = 0; i < 10; i++) {
+//        printf("정수를 입력하세요: ");
+//        scanf("%d", &a[i]);
+//    }
+//
+//    for (i = 0; i < 9; i++) {
+//        for (j = 0; j < 9 - i; j++) {
+//            if (a[j] > a[j + 1]) { //내림차순으로 정렬하려면 부호를 뒤집어야 합니다.
+//                temp = a[j];
+//                a[j] = a[j + 1];
+//                a[j + 1] = temp;
+//            }
+//        }
+//    }
+//
+//    // 정렬된 배열 출력
+//    printf("오름차순으로 정렬된 배열:\n");
+//    for (i = 0; i < 10; i++) {
+//        printf("%d ", a[i]);
+//    }
+//
+//   
+//}
+
+
+//선택 정렬
+//10개의 숫자를 입력받아 배열에 저장한 후 저장된 자료를 오름차순으로 정렬
+
+//int main(){
+//    int i=0;
+//    int j=0;
+//    int a[10];
+//    int temp=0; //임시 변수
+//
+//
+//    for(int i=0;i<10;i++){
+//        printf("정수를 입력하세요: ");
+//        scanf("%d",&a[i]);
+//
+//    }
+//
+//    for (int i = 0; i < 9; i++) {
+//        for (int j = i+1; j < 10; j++) {
+//            if (a[i] > a[j]) {
+//                int temp = a[i];
+//                a[i] = a[j];
+//                a[j] = temp;
+//            }
+//        }
+//    }
+//
+//    // 정렬된 배열을 출력
+//       printf("오름차순으로 정렬된 배열:\n");
+//       for (int i = 0; i < 10; i++) {
+//           printf("%d ", a[i]);
+//       }
+//
+//}
+//
+
+
+//삽입 정렬
+
+
+
+//버블 정렬 while
+
+//int main(){
+//        int i=0;
+//        int j=0;
+//        int a[10];
+//        int temp=0; //임시 변수
+//    
+//    
+//    
+//    
+//    while(i<10){
+//        printf("정수를 입력하세요: ");
+//        scanf("%d",&a[i]);
+//        ++i;
+//        
+//    }
+//    
+//    i=0;
+//    while(i<9){
+//        j=0;
+//        while(j<9-i){
+//            if(a[j]>a[j+1]){
+//                temp=a[j];
+//                a[j]=a[j+1];
+//                a[j+1]=temp;
+//            }
+//            ++j;
+//        }
+//        ++i;
+//    }
+//    i=0;
+//    while(i<10){
+//        printf("%d\n",a[i]);
+//        ++i;
+//    }
+//}
+
+
+
+
+//선택 정렬
+
+
+//int main(){
+//
+//            int i=0;
+//            int j=0;
+//            int a[10];
+//            int temp=0; //임시 변수
+//    
+//    
+//    while(i<10){
+//        printf("정수를 입력하세요: ");
+//        scanf("%d",&a[i]);
+//        
+//        
+//    }
+//    
+//    i=0;
+//    while(i<9){
+//        while(j<9){
+//            if(a[i]>a[j]){
+//                temp=a[i];
+//                a[i] = a[j];
+//                a[j] = temp;
+//            }
+//            ++j;
+//        }
+//        ++i;
+//    }
+//}
 
 
 
