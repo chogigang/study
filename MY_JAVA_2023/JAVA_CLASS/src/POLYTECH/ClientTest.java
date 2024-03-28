@@ -15,7 +15,7 @@ public class ClientTest {
 					new InputStreamReader(socket.getInputStream()));
 
 			PrintWriter writer = new PrintWriter(socket.getOutputStream());
-			writer.println("안녕 나는 노쿤이야! ");
+			writer.println("안녕 나는 12번이야! ");
 			writer.flush();
 			System.out.println(reader.readLine());
 
