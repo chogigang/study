@@ -16,10 +16,7 @@ public class ServerTest {
 			socket = serverSocket.accept();
 			System.out.println("연결.");
 
-			BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream())); // 소켓에서 스트림으로
-																										// 읽어서 택스트 형태로
-																										// 바꿔준다.
-
+			BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));																										
 			PrintWriter writer = new PrintWriter(socket.getOutputStream());
 
 			System.out.println(reader.readLine());
