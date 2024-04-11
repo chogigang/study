@@ -1,9 +1,10 @@
 package POLYTECH;
 
+
 import java.net.*;
 
 public class ServerChatTest {
- 
+
 	public static void main(String[] args) {
 		ServerSocket serverSocket = null;
 		Socket socket = null;
@@ -19,7 +20,7 @@ public class ServerChatTest {
 			
 			st.start();
 			rt.start();
- 
+
 		} catch(Exception e) {
 			System.out.println(e);
 		}
@@ -32,5 +33,5 @@ public class ServerChatTest {
 			}
 		}
 	}
- 
+
 }

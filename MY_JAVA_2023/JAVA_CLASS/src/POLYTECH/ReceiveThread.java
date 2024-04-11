@@ -1,10 +1,11 @@
 package POLYTECH;
 
+
 import java.io.*;
 import java.net.*;
- 
+
 public class ReceiveThread extends Thread{
- 
+
 	Socket socket;
 	
 	ReceiveThread(Socket socket){

@@ -1,32 +1,34 @@
 package POLYTECH;
 
+
 import java.io.*;
 import java.net.*;
 
 public class ClientTest {
 
 	public static void main(String[] args) {
+
 		Socket socket = null;
-
+		
 		try {
-			socket = new Socket("192.168.18.128", 5050);
-			BufferedReader reader = new BufferedReader(
-
-					new InputStreamReader(socket.getInputStream()));
-
+			socket = new Socket("127.0.0.1",5050);
+			
+			BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			PrintWriter writer = new PrintWriter(socket.getOutputStream());
-			writer.println("안녕 나는 이야! ");
+
+			writer.println("클라이언트가 접속했습니다.");
 			writer.flush();
+			
 			System.out.println(reader.readLine());
 
-		} catch (Exception e) {
+		}catch(Exception e) {
 			System.out.println(e);
-		} finally {
-
+		}
+		finally {
 			try {
 				socket.close();
-			} catch (Exception e) {
-
+			}catch(Exception e) {
+				System.out.println(e);
 			}
 		}
 	}
