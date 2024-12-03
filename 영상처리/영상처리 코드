@@ -1,0 +1,1063 @@
+
+// imageProDoc.cpp: CimageProDoc 클래스의 구현
+//
+
+#include "pch.h"
+#include "framework.h"
+// SHARED_HANDLERS는 미리 보기, 축소판 그림 및 검색 필터 처리기를 구현하는 ATL 프로젝트에서 정의할 수 있으며
+// 해당 프로젝트와 문서 코드를 공유하도록 해 줍니다.
+#ifndef SHARED_HANDLERS
+#include "imagePro.h"
+#endif
+
+#include "imageProDoc.h"
+
+#include <propkey.h>
+
+#ifdef _DEBUG
+#define new DEBUG_NEW
+#endif
+
+// CimageProDoc
+
+IMPLEMENT_DYNCREATE(CimageProDoc, CDocument)
+
+BEGIN_MESSAGE_MAP(CimageProDoc, CDocument)
+END_MESSAGE_MAP()
+
+
+// CimageProDoc 생성/소멸
+
+CimageProDoc::CimageProDoc() noexcept
+{
+	// TODO: 여기에 일회성 생성 코드를 추가합니다.
+
+}
+
+CimageProDoc::~CimageProDoc()
+{
+}
+
+BOOL CimageProDoc::OnNewDocument()
+{
+	if (!CDocument::OnNewDocument())
+		return FALSE;
+
+	// TODO: 여기에 재초기화 코드를 추가합니다.
+	// SDI 문서는 이 문서를 다시 사용합니다.
+
+	return TRUE;
+}
+
+
+
+
+// CimageProDoc serialization
+
+void CimageProDoc::Serialize(CArchive& ar)
+{
+	if (ar.IsStoring() == TRUE)
+	{
+		// TODO: 여기에 저장 코드를 추가합니다.
+		ar.Write(resultimg, 256 * 256);
+	}
+	else
+	{
+		// TODO: 여기에 로딩 코드를 추가합니다.
+		CFile *fp = ar.GetFile();
+		if (fp->GetLength() == 256 * 256) {
+			ar.Read(inputimg, 256 * 256);
+		}
+		else {
+			AfxMessageBox(L"256 * 256 영상이 아닙니다.");
+		}
+	}
+}
+
+#ifdef SHARED_HANDLERS
+
+// 축소판 그림을 지원합니다.
+void CimageProDoc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
+{
+	// 문서의 데이터를 그리려면 이 코드를 수정하십시오.
+	dc.FillSolidRect(lprcBounds, RGB(255, 255, 255));
+
+	CString strText = _T("TODO: implement thumbnail drawing here");
+	LOGFONT lf;
+
+	CFont* pDefaultGUIFont = CFont::FromHandle((HFONT) GetStockObject(DEFAULT_GUI_FONT));
+	pDefaultGUIFont->GetLogFont(&lf);
+	lf.lfHeight = 36;
+
+	CFont fontDraw;
+	fontDraw.CreateFontIndirect(&lf);
+
+	CFont* pOldFont = dc.SelectObject(&fontDraw);
+	dc.DrawText(strText, lprcBounds, DT_CENTER | DT_WORDBREAK);
+	dc.SelectObject(pOldFont);
+}
+
+// 검색 처리기를 지원합니다.
+void CimageProDoc::InitializeSearchContent()
+{
+	CString strSearchContent;
+	// 문서의 데이터에서 검색 콘텐츠를 설정합니다.
+	// 콘텐츠 부분은 ";"로 구분되어야 합니다.
+
+	// 예: strSearchContent = _T("point;rectangle;circle;ole object;");
+	SetSearchContent(strSearchContent);
+}
+
+void CimageProDoc::SetSearchContent(const CString& value)
+{
+	if (value.IsEmpty())
+	{
+		RemoveChunk(PKEY_Search_Contents.fmtid, PKEY_Search_Contents.pid);
+	}
+	else
+	{
+		CMFCFilterChunkValueImpl *pChunk = nullptr;
+		ATLTRY(pChunk = new CMFCFilterChunkValueImpl);
+		if (pChunk != nullptr)
+		{
+			pChunk->SetTextValue(PKEY_Search_Contents, value, CHUNK_TEXT);
+			SetChunkValue(pChunk);
+		}
+	}
+}
+
+#endif // SHARED_HANDLERS
+
+// CimageProDoc 진단
+
+#ifdef _DEBUG
+void CimageProDoc::AssertValid() const
+{
+	CDocument::AssertValid();
+}
+
+void CimageProDoc::Dump(CDumpContext& dc) const
+{
+	CDocument::Dump(dc);
+}
+#endif //_DEBUG
+
+
+// CimageProDoc 명령
+
+
+void CimageProDoc::Pixel_Add()
+{
+	// TODO: 여기에 구현 코드 추가.
+	int value = 0;
+
+	for (int x = 0; x < 256; x++) {
+		for (int y = 0; y < 256; y++) {
+			value = inputimg[x][y] + 40;
+			if (value > 255)
+				resultimg[x][y] = 255;
+			else
+				resultimg[x][y] = value;
+		}
+	}
+}
+
+
+void CimageProDoc::Pixel_Sub()
+{
+	// TODO: 여기에 구현 코드 추가.
+	int value = 0;
+
+	for (int x = 0; x < 256; x++) {
+		for (int y = 0; y < 256; y++) {
+			value = inputimg[x][y] - 40;
+			if (value < 0)
+				resultimg[x][y] = 0;
+			else
+				resultimg[x][y] = value;
+		}
+	}
+}
+
+
+
+
+
+void CimageProDoc::Pixel_Mul()
+{
+	int value = 0;
+
+	for (int x = 0; x < 256; x++) {
+		for (int y = 0; y < 256; y++) {
+			value = inputimg[x][y] * 1.5;
+			if (value > 255)
+				resultimg[x][y] = 255;
+			else
+				resultimg[x][y] = value;
+		}
+	}
+
+	// TODO: 여기에 구현 코드 추가.
+}
+
+
+void CimageProDoc::Pixel_Div()
+{
+	// TODO: 여기에 구현 코드 추가.
+	int value = 0;
+
+	for (int x = 0; x < 256; x++) {
+		for (int y = 0; y < 256; y++) {
+			value = inputimg[x][y] /1.5;
+			if (value < 0)
+				resultimg[x][y] = 0;
+			else
+				resultimg[x][y] = value;
+		}
+	}
+}
+
+
+void CimageProDoc::Histo_View() {
+	// TODO: 여기에 구현 코드 추가.
+	int k = 0;
+	int value = 0;
+	int histo[256];
+	unsigned char tmp[256][256];
+
+	for (int z = 0; z < 256; z++) {
+		histo[z] = 0;
+		for (int w = 0; w < 256; w++) {
+			tmp[z][w] = 0;
+		}
+
+	}
+	for (int i = 0; i < 256; i++) {
+		for (int j = 0; j < 256; j++) {
+			k = inputimg[i][j];
+			histo[k] = histo[k] + 1;
+		}
+	}
+	for (int x = 0; x < 256; x++) {
+		value = histo[x] / 4;
+		if (value > 255) 
+			value = 255;
+
+		for (int b = 0; b < value; b++) 
+			tmp[b][x] = 128;
+				
+	}
+	
+
+	int y2 = 0;
+
+
+	for (int y = 0; y < 256; y++) {
+		for (int x = 0; x < 256; x++) {
+			y2 = (255 - y);
+			resultimg[y2][x] = tmp[y][x];
+
+		}
+	}
+
+}
+
+void CimageProDoc::Binary()
+{
+	// TODO: 여기에 구현 코드 추가.
+	for (int y = 0; y < 256; y++)
+	{
+		for (int x = 0; x < 256; x++) {
+		
+			if ( inputimg[y][x] <127) {
+				resultimg[y][x] = 0;
+			}
+			else {
+				resultimg[y][x] = 255;
+			}
+		}
+	}
+}
+
+
+void CimageProDoc::Reverse_Img()
+{
+	// TODO: 여기에 구현 코드 추가.
+	for (int y = 0; y < 256; y++)
+	{
+		for (int x = 0; x < 256; x++) {
+
+			resultimg[y][x] = 255 - inputimg[y][x];
+		
+		}
+	}
+
+}
+
+void CimageProDoc::HistoStretch()
+{
+	// TODO: 여기에 구현 코드 추가.
+  // 변수 초기화
+    int min = 255;
+    int max = 0;
+    // 입력 이미지에서 최소값과 최대값 찾기
+    for (int i = 0; i < 256; i++) {
+        for (int j = 0; j < 256; j++) {
+            int tmp = inputimg[i][j];
+            if (tmp < min) {
+                min = tmp;
+            }
+            if (tmp > max) {
+                max = tmp;
+            }
+        }
+    }
+    
+        // 스트레칭 적용
+        for (int x = 0; x < 256; x++) {
+            for (int y = 0; y < 256; y++) {
+                resultimg[x][y] = (inputimg[x][y] - min) * 255 / (max - min);
+            }
+        }
+    }
+
+
+
+void CimageProDoc::mirror()
+{
+	for (int y = 0; y < 256; y++) {
+		for (int x = 0; x < 256; x++) {
+			resultimg[y][x] = inputimg[y][255 - x];
+		}
+	}
+		
+}
+
+
+void CimageProDoc::Flip()
+{
+	for (int y = 0; y < 256; y++) {
+		for (int x = 0; x < 256; x++) {
+			resultimg[y][x] = inputimg[255 - y][x];
+		}
+	}
+}
+
+
+void CimageProDoc::Test1()
+{
+	for (int y = 0; y < 256; y++) 
+		for (int x = 0; x < 256; x++) 
+			resultimg[y][x] = inputimg[y][x];
+
+	for (int y = 0; y < 50; y++) 
+		for (int x = 64; x < 192; x++) 
+			resultimg[y + 50][x] = inputimg[y][x];
+		
+}
+
+
+void CimageProDoc::Test2()
+{
+	for (int y = 0; y < 256; y++)
+		for (int x = 0; x < 256; x++)
+			resultimg[y][x] = inputimg[y][x];
+		
+	for (int y = 0; y < 50; y++)
+		for (int x = 64; x < 192; x++)
+			resultimg[100-y][x] = inputimg[y][x];
+			// 255-(y+150)
+}
+
+
+void CimageProDoc::Test3()
+{
+	for (int y = 0; y < 256; y++)
+		for (int x = 0; x < 256; x++) 
+		{
+			if (x > 64 && x < 192 && ((y>15 && y < 20) || (y>45 && y<50)))
+				resultimg[y][x] = 255;
+			else if(y>15 && y<50 &&((x>64 && x<69) || (x>187 && x<192)))
+				resultimg[y][x] = 255;
+			else
+				resultimg[y][x] = inputimg[y][x];
+		}
+	/*
+	for (int y = 0; y < 256; y++)
+		for (int x = 0; x < 256; x++)
+			resultimg[y][x] = inputimg[y][x];
+	
+	for (int y = 10; y < 60; y++)
+		for (int x = 64; x < 69; x++)
+			resultimg[y][x] = 255;
+
+	for (int y = 10; y < 60; y++)
+		for (int x = 187; x < 192; x++)
+			resultimg[y][x] = 255;
+
+	for (int y = 5; y < 10; y++)
+		for (int x = 64; x <192; x++)
+			resultimg[y][x] = 255;
+
+	for (int y = 55; y < 60; y++)
+		for (int x = 64; x < 192; x++)
+			resultimg[y][x] = 255;
+	*/
+}
+
+
+void CimageProDoc::Init()
+{
+	// TODO: 여기에 구현 코드 추가.
+	for (int y = 0; y < 512; y++)
+		for (int x = 0; x < 512; x++)
+		{
+			
+			scaleimg[y][x] = 255;
+		}
+
+
+
+}
+
+
+void CimageProDoc::Zoomin_1()
+{
+	// TODO: 여기에 구현 코드 추가.
+	Init();
+	for (int y = 0; y < 256; y++) {
+		for (int x = 0; x < 256; x++) {
+			scaleimg[y * 2][x * 2] = inputimg[y][x];
+			scaleimg[y * 2][x * 2 + 1] = inputimg[y][x];
+			scaleimg[y * 2 + 1][x * 2] = inputimg[y][x];
+			scaleimg[y * 2 + 1][x * 2 + 1] = inputimg[y][x];
+		}
+
+	}
+
+
+
+}
+
+
+
+
+void CimageProDoc::Zoomin_2()
+{
+	// TODO: 여기에 구현 코드 추가.
+	Init();
+
+	for (int y = 0; y < 256; y++) {
+		for (int x = 0; x < 256; x++) {
+			scaleimg[y * 2][x * 2] = inputimg[y][x];
+
+		}
+	
+	}
+	for (int y = 0; y < 512; y += 2)
+		for (int x = 0; x < 512; x += 2)
+			scaleimg[y][x + 1] = scaleimg[y][x];
+
+
+	for (int y = 0; y < 512; y += 2)
+		for (int x = 0; x < 512; x += 2)
+			scaleimg[y+1][x] = scaleimg[y][x];
+
+
+}
+
+
+void CimageProDoc::Zoomin_3()
+{
+	// TODO: 여기에 구현 코드 추가.
+	
+	Init();
+
+	// 2개의 픽셀로 평균 구하기
+	for (int y = 0; y < 256; y++) {
+		for (int x = 0; x < 256; x++) {
+			scaleimg[y * 2][x * 2] = inputimg[y][x];
+			scaleimg[y * 2][x * 2 + 1] = (inputimg[y][x] + inputimg[y][x + 1]) / 2;
+			scaleimg[y * 2 + 1][x * 2] = (inputimg[y][x] + inputimg[y + 1][x]) / 2;
+			scaleimg[y * 2 + 1][x * 2 + 1] = (inputimg[y][x] + inputimg[y + 1][x + 1]) / 2;
+		}
+	}
+
+
+}
+
+
+void CimageProDoc::Sampling_1()
+{
+
+	// 축소 
+	// TODO: 여기에 구현 코드 추가.
+	for (int y = 0; y < 128; y++) {
+		for (int x = 0; x < 128; x++) {
+			resultimg[y][x] = inputimg[y*2][x*2];
+			
+			
+
+		}
+	}
+
+}
+
+
+void CimageProDoc::DoubleLoad()
+{
+	// TODO: 여기에 구현 코드 추가.
+
+	AfxMessageBox(L"Select First Image");
+
+	CFileDialog dlg(TRUE);
+	if (dlg.DoModal() == IDOK) {
+		CFile file;
+		file.Open(dlg.GetPathName(),CFile::modeRead);
+		file.Read(inputimg, 256 * 256);
+		file.Close();
+
+	}
+
+	AfxMessageBox(L"Select Second Image");
+
+	CFileDialog dlg2(TRUE);
+	if (dlg2.DoModal() == IDOK) {
+		CFile file;
+		file.Open(dlg2.GetPathName(), CFile::modeRead);
+		file.Read(resultimg, 256 * 256);
+		file.Close();
+
+	}
+
+}
+
+
+void CimageProDoc::ImageSum()
+{
+	// TODO: 여기에 구현 코드 추가.
+	DoubleLoad();
+
+	int value = 0;
+
+
+	for (int y = 0; y < 256; y++) {
+		for (int x = 0; x < 256; x++) {
+			value= inputimg[y][x] + resultimg[y][x];
+
+			if (value > 255) {
+				scaleimg[y][x] = 255;
+			}
+			else{
+				scaleimg[y][x] = value;
+			}
+
+		}
+	}
+
+}
+
+
+void CimageProDoc::ImageSub()
+{
+	// TODO: 여기에 구현 코드 추가.
+	DoubleLoad();
+	int value = 0;
+
+	for (int y = 0; y < 256; y++) {
+		for (int x = 0; x < 256; x++) {
+			value = inputimg[y][x] - resultimg[y][x];
+
+			if (value < 0) {
+				scaleimg[y][x] = 0;
+			}
+			else {
+				scaleimg[y][x] = value;
+			}
+
+		}
+	}
+
+
+}
+
+
+void CimageProDoc::ImageMul()
+{
+	// TODO: 여기에 구현 코드 추가.
+
+	DoubleLoad();
+	int value = 0;
+
+	for (int y = 0; y < 256; y++) {
+		for (int x = 0; x < 256; x++) {
+			value = (inputimg[y][x]*0.1) * (resultimg[y][x]*0.1);
+
+			if (value > 255) {
+				scaleimg[y][x] = 255;
+			}
+			else {
+				scaleimg[y][x] = value;
+			}
+
+		}
+	}
+
+
+}
+
+
+void CimageProDoc::ImageDiv()
+{
+	// TODO: 여기에 구현 코드 추가.
+
+	DoubleLoad();
+	int value = 0;
+
+	for (int y = 0; y < 256; y++) {
+		for (int x = 0; x < 256; x++) {
+			if (resultimg[y][x] == 0) {
+				scaleimg[y][x] = inputimg[y][x];
+			}
+			else {
+		scaleimg[y][x] = int(inputimg[y][x] / resultimg[y][x])*20;
+			}
+		}
+	
+	}
+
+}
+
+
+
+
+
+
+
+// 마스크 연산
+//컴벌루션 처리
+//회선은 그 주위 필셀 값에 회선 마스크의 값을 곱하여 합한 값 이고 짝수를 사용할수 없다 중앙에 값이 들어가기때문에 홀수만 사용할수 있다 .
+
+
+
+
+void CimageProDoc::Blurring()
+{
+	// TODO: 여기에 구현 코드 추가.
+
+	int sum = 0; 
+
+	float Mask[3][3] = { { 1,1,1},{1,1,1} ,{1,1,1}};
+
+
+	for (int y = 0; y < 256; y++) {
+		for (int x = 0; x < 256; x++) {
+
+
+
+			for (int i = 0; i < 3; i++) {
+				// 마스크  이동 관련 반복문
+				for (int j = 0; j < 3; j++) {
+					sum = sum + inputimg[y + i ][x + j ]*( Mask [i] [j] / 9);
+				
+				}
+			}
+		// 입력 영상 반복문
+			resultimg[y + 1][x + 1] = (unsigned char)sum;
+			sum = 0;
+
+
+		}
+	}
+
+
+
+
+}
+
+
+void CimageProDoc::Sharpening1()
+{
+	// TODO: 여기에 구현 코드 추가.
+
+	int sum = 0;
+
+	int  Mask[3][3] = { { 0,-1,0},{-1,5,-1} ,{0,-1,0} };
+
+
+	for (int y = 0; y < 256; y++) {
+		for (int x = 0; x < 256; x++) {
+
+
+
+			for (int i = 0; i < 3; i++) {
+				// 마스크  이동 관련 반복문
+				for (int j = 0; j < 3; j++) {
+					sum = sum + inputimg[y + i][x + j] * (Mask[i][j]);
+
+				}
+			}
+			// 입력 영상 반복문
+			if (sum < 0) {
+				sum = 0;
+			}
+			else if ( sum >255){
+				sum = 255;
+			}
+
+			resultimg[y + 1][x + 1] = (unsigned char)sum;
+			sum = 0;
+
+
+		}
+	}
+
+
+
+
+
+}
+
+
+void CimageProDoc::Sharpening2()
+{
+	// TODO: 여기에 구현 코드 추가.
+	int sum = 0;
+
+	int  Mask[3][3] = { { -1,-1,-1},{-1,9,-1} ,{-1,-1,-1} };
+
+
+	for (int y = 0; y < 256; y++) {
+		for (int x = 0; x < 256; x++) {
+
+
+
+			for (int i = 0; i < 3; i++) {
+				// 마스크  이동 관련 반복문
+				for (int j = 0; j < 3; j++) {
+					sum = sum + inputimg[y + i][x + j] * (Mask[i][j]);
+
+				}
+			}
+			// 입력 영상 반복문
+			if (sum < 0) {
+				sum = 0;
+			}
+			else if (sum > 255) {
+				sum = 255;
+			}
+
+			resultimg[y + 1][x + 1] = (unsigned char)sum;
+			sum = 0;
+
+		}
+	}
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+void CimageProDoc::Robert()
+{
+	// TODO: 여기에 구현 코드 추가.
+	int sum = 0;
+	int center_value1 = 0; // 
+	int center_value2 = 0; //마스크 합계 저장용
+
+	int  Mask1[3][3] = { { -1,0,0},{0,1,0} ,{0,0,0} }; // 행 마스크 
+	int	 Mask2[3][3] = { {0,0,-1},{0,1,0},{0,0,0} }; // 열 마스크 
+
+
+	for (int y = 0; y < 256; y++) {
+		for (int x = 0; x < 256; x++) {
+
+
+
+			for (int i = 0; i < 3; i++) {
+				// 마스크  이동 관련 반복문
+				for (int j = 0; j < 3; j++) {
+					center_value1 += inputimg[y + i][x + i] * Mask1[i][j];
+					center_value2 += inputimg[y + i][x + i] * Mask2[i][j];
+
+				}
+			}
+			
+			sum = abs(center_value1) + abs(center_value2); //절대값 계산
+			if (sum > 255) {
+				sum = 255;
+			}
+			resultimg[y + 1][x + 1] = sum;
+			center_value1 = 0;
+			center_value2 = 0;
+			sum = 0;
+
+
+		}
+	}
+
+
+
+}
+
+
+void CimageProDoc::Prewitt()
+{
+	// TODO: 여기에 구현 코드 추가.
+	int sum = 0;
+	int center_value1 = 0; // 
+	int center_value2 = 0; //마스크 합계 저장용
+
+	int  Mask1[3][3] = { { -1,-1,-1},{0,0,0} ,{1,1,1} }; // y축 마스크 
+	int	 Mask2[3][3] = { {-1,0,1},{-1,0,1},{-1,0,1} }; // x축 마스크 
+
+
+	for (int y = 0; y < 256; y++) {
+		for (int x = 0; x < 256; x++) {
+
+
+
+			for (int i = 0; i < 3; i++) {
+				// 마스크  이동 관련 반복문
+				for (int j = 0; j < 3; j++) {
+					center_value1 += inputimg[y + i][x + i] * Mask1[i][j];
+					center_value2 += inputimg[y + i][x + i] * Mask2[i][j];
+
+				}
+			}
+
+			sum = abs(center_value1) + abs(center_value2); //절대값 계산
+			if (sum > 255) {
+				sum = 255;
+			}
+			resultimg[y + 1][x + 1] = sum;
+			center_value1 = 0;
+			center_value2 = 0;
+			sum = 0;
+
+
+		}
+	}
+
+
+
+}
+
+
+void CimageProDoc::Sobel()
+{
+	// TODO: 여기에 구현 코드 추가.
+	int sum = 0;
+	int center_value1 = 0; // 
+	int center_value2 = 0; //마스크 합계 저장용
+
+	int  Mask1[3][3] = { { -1,-2,-1},{0,0,0} ,{1,2,1} }; // 행 마스크 
+	int	 Mask2[3][3] = { {-1,0,1},{-2,0,2},{-1,0,1} }; // 열 마스크 
+
+
+	for (int y = 0; y < 256; y++) {
+		for (int x = 0; x < 256; x++) {
+
+
+
+			for (int i = 0; i < 3; i++) {
+				// 마스크  이동 관련 반복문
+				for (int j = 0; j < 3; j++) {
+					center_value1 += inputimg[y + i][x + i] * Mask1[i][j];
+					center_value2 += inputimg[y + i][x + i] * Mask2[i][j];
+
+				}
+			}
+
+			sum = abs(center_value1) + abs(center_value2); //절대값 계산
+			if (sum > 255) {
+				sum = 255;
+			}
+			resultimg[y + 1][x + 1] = sum;
+			center_value1 = 0;
+			center_value2 = 0;
+			sum = 0;
+
+
+		}
+	}
+
+}
+
+
+void CimageProDoc::Laplacian()
+{
+	// TODO: 여기에 구현 코드 추가.
+
+	int sum = 0;
+
+	int  Mask[3][3] = { { -1,-1,-1},{-1,8,-1} ,{-1,-1,-1} };
+
+
+	for (int y = 0; y < 256; y++) {
+		for (int x = 0; x < 256; x++) {
+
+
+
+			for (int i = 0; i < 3; i++) {
+				// 마스크  이동 관련 반복문
+				for (int j = 0; j < 3; j++) {
+					sum = sum + inputimg[y + i][x + j] * (Mask[i][j]);
+
+				}
+			}
+			// 입력 영상 반복문
+			if (sum < 0) {
+				sum = 0;
+			}
+			else if (sum > 255) {
+				sum = 255;
+			}
+
+			resultimg[y + 1][x + 1] = (unsigned char)sum;
+			sum = 0;
+
+
+		}
+	}
+
+}
+
+
+
+
+
+
+void CimageProDoc::Gaussian()
+{
+	// TODO: 여기에 구현 코드 추가.
+	int sum = 0;
+
+	int  Mask[3][3] = { { -1,-1,-1},{-1,8,-1} ,{-1,-1,-1} };
+	int  Gaussian_Filter[5][5] = { {0,0,-1,0,0},{0,-1,-2,-1,0},{-1,-2,16,-2,-1},{0,-1,-2,-1,0},{0,0,-1,0,0} };
+
+
+	for (int y = 0; y < 256; y++) {
+		for (int x = 0; x < 256; x++) {
+
+
+
+			for (int i = 0; i < 5; i++) {
+				// 마스크  이동 관련 반복문
+				for (int j = 0; j < 5; j++) {
+					sum = sum + inputimg[y + i][x + j] * (Gaussian_Filter[i][j]);
+
+				}
+			}
+			// 입력 영상 반복문
+			if (sum < 0) {
+				sum = 0;
+			}
+			else if (sum > 255) {
+				sum = 255;
+			}
+
+			resultimg[y + 2][x + 2] = (unsigned char)sum;
+			sum = 0;
+
+
+		}
+	}
+
+
+}
+// 침식 팽창 열림 닫힘
+
+
+
+
+void CimageProDoc::Erosion()
+{
+	// TODO: 여기에 구현 코드 추가.
+	int sum = 0;
+
+	int  Mask[3][3] = { { 0,0,0},{0,0,0} ,{0,0,0} };
+	
+	for (int y = 1; y < 255; y++) {   
+		for (int x = 1; x < 255; x++) {
+
+			bool erosion = true;  
+
+			// 3x3 마스크 적용 (중앙 픽셀을 기준으로 주변 8픽셀을 확인)
+			for (int dy = -1; dy <= 1; dy++) {
+				for (int dx = -1; dx <= 1; dx++) {
+					// 인덱스 범위 벗어나지 않게 체크 (y, x는 1~254 범위에서만 순회)
+					int ny = y + dy;
+					int nx = x + dx;
+
+					// inputimg[ny][nx]가 0이면 침식 불가능 (해당 픽셀을 0으로 설정)
+					if (inputimg[ny][nx] == 0) {
+						erosion = false;  // 주변에 0이 하나라도 있으면 침식 연산이 적용되지 않음
+						break;  // 더 이상 확인할 필요 없음
+					}
+				}
+				if (!erosion) break;  // 주변에 0이 하나라도 있으면 더 이상 체크할 필요 없음
+			}
+
+			// 현재 픽셀이 침식 연산을 거쳐 1로 설정될지 판단하여 resultimg에 적용
+			if (erosion) {
+				resultimg[y][x] = 255;  // 침식 후 255
+			}
+			else {
+				resultimg[y][x] = 0;  // 침식 후 0
+			}
+		}
+	}
+
+
+}
+
+
+void CimageProDoc::Dilatation()
+{
+	// TODO: 여기에 구현 코드 추가.
+	int sum = 0;
+
+	int  Mask[3][3] = { { 0,0,0},{0,0,0} ,{0,0,0} };
+
+	for (int y = 1; y < 255; y++) {
+		for (int x = 1; x < 255; x++) {
+
+			bool dilate = false;
+
+			// 3x3 마스크 적용 (중앙 픽셀을 기준으로 주변 8픽셀을 확인)
+			for (int dy = -1; dy <= 1; dy++) {
+				for (int dx = -1; dx <= 1; dx++) {
+					// 인덱스 범위 벗어나지 않게 체크 (y, x는 1~254 범위에서만 순회)
+					int ny = y + dy;
+					int nx = x + dx;
+
+					// inputimg[ny][nx]가 0이면 침식 불가능 (해당 픽셀을 0으로 설정)
+					if (inputimg[ny][nx] == 255) {
+						dilate = true;  
+						break;  
+					}
+				}
+				if (dilate) break;  // 주변에 0이 하나라도 있으면 더 이상 체크할 필요 없음
+			}
+
+			// 현재 픽셀이 침식 연산을 거쳐 1로 설정될지 판단하여 resultimg에 적용
+			if (dilate) {
+				resultimg[y][x] = 255;  // 침식 후 255
+			}
+			else {
+				resultimg[y][x] = 0;  // 침식 후 0
+			}
+		}
+	}
+
+}
