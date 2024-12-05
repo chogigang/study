@@ -218,44 +218,50 @@ void CimageProDoc::Pixel_Div()
 }
 
 
+ // 히스토그램을 계산하고, 이를 시각화하여 결과 이미지를 생성하는 함수입니다
 void CimageProDoc::Histo_View() {
 	// TODO: 여기에 구현 코드 추가.
-	int k = 0;
-	int value = 0;
-	int histo[256];
-	unsigned char tmp[256][256];
+ 
 
+	int k = 0; // 현재 픽셀 값(0~255 범위의 그레이스케일 값)
+	int value = 0; // 히스토그램의 축소된 값 (시각화 용도)
+	int histo[256]; // 각 픽셀 값의 빈도수를 저장하는 배열 (0~255의 값을 인덱스로 사용)
+	unsigned char tmp[256][256]; // 히스토그램 시각화를 위한 임시 이미지 배열 (256x256)
+
+	// 1.히스토그램과 임시 배열 초기화
 	for (int z = 0; z < 256; z++) {
-		histo[z] = 0;
+		histo[z] = 0; // 모든 픽셀 값의 빈도수를 0으로 초기화
 		for (int w = 0; w < 256; w++) {
-			tmp[z][w] = 0;
+			tmp[z][w] = 0; // 임시 배열도 모두 0으로 초기화
 		}
 
 	}
+	// 2. 입력 이미지에서 각 픽셀 값의 빈도수 계산
 	for (int i = 0; i < 256; i++) {
 		for (int j = 0; j < 256; j++) {
-			k = inputimg[i][j];
-			histo[k] = histo[k] + 1;
+			k = inputimg[i][j]; // 입력 이미지의 (i, j) 위치 픽셀 값 가져오기
+			histo[k] = histo[k] + 1; // 해당 픽셀 값의 빈도수 증가
 		}
 	}
+	// 3. 히스토그램을 시각화 배열에 변환
 	for (int x = 0; x < 256; x++) {
-		value = histo[x] / 4;
+		value = histo[x] / 4; // 히스토그램의 값을 축소하여 시각화 크기를 맞춤 (축소 비율: 1/4)
 		if (value > 255) 
-			value = 255;
+			value = 255; // 값이 255를 초과하지 않도록 제한
 
 		for (int b = 0; b < value; b++) 
-			tmp[b][x] = 128;
+			tmp[b][x] = 128; // 히스토그램 바를 생성 (128: 중간 밝기 값)
 				
 	}
 	
 
-	int y2 = 0;
+	int y2 = 0; // 상하 반전을 위한 y 좌표 계산 변수
 
-
+ 	// 4. 시각화된 히스토그램 배열을 결과 이미지 배열에 복사
 	for (int y = 0; y < 256; y++) {
 		for (int x = 0; x < 256; x++) {
-			y2 = (255 - y);
-			resultimg[y2][x] = tmp[y][x];
+			y2 = (255 - y); // y축을 반전하여 히스토그램이 아래에서 위로 보이게 함
+			resultimg[y2][x] = tmp[y][x]; // 반전된 y축으로 결과 이미지에 저장
 
 		}
 	}
@@ -283,11 +289,15 @@ void CimageProDoc::Binary()
 void CimageProDoc::Reverse_Img()
 {
 	// TODO: 여기에 구현 코드 추가.
+ // 1. 이중 반복문을 통해 입력 이미지의 모든 픽셀을 순회
 	for (int y = 0; y < 256; y++)
 	{
+			 // 2. 반전 계산
 		for (int x = 0; x < 256; x++) {
 
 			resultimg[y][x] = 255 - inputimg[y][x];
+	    // inputimg[y][x]: 입력 이미지의 (y, x) 위치의 픽셀 값 (0~255 범위)
+            // 255 - inputimg[y][x]: 픽셀 값을 반전 (255에서 빼기)
 		
 		}
 	}
