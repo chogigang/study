@@ -282,7 +282,7 @@
 #     t.forward(100)
 #     t.left(360/n)
 
-#도전문제 5.8
+#도전문제 5.8.1
 # import turtle
 # t = turtle.Turtle()
 # t.shape("turtle")
@@ -291,28 +291,56 @@
 # while i< 5:
 #     t.forward(50)
 #     t.right(144)
-#     i =i+1
+# #     i =i+1
 
-#도전문제 5.10
-import random
+#도전문제 5.8.2
+# import turtle
+# t = turtle.Turtle()
+# t.shape("turtle")
+# i = 0
 
-tries =0
-guess =0
-answer =random.randint(1,100)
-print("1부터 100 사이의 숫자를 맞추시오")
-while guess !=answer :
-    guess =int(input("숫자를 입력하시오: "))
-    tries =tries +1
+# while i< 5:
+#     t.forward(150)
+#     t.right(140)
+# #     i =i+1
 
-    if (guess <answer):
-        print("낮음!")
-    elif (guess>answer):
-        print("높음!")
-    if(tries>=10):
 
-        break
+# 도전문제 5.8.3
+# import turtle
 
-if(tries>= 10):
-    print("실패 총 시도 횟수 =",tries)
-else :
-    print("축하합니다. 총 시도횟수=",tries)
+# t = turtle.Turtle()
+# t.shape("turtle")
+# n= 5
+# i = 0
+# while i < 5:
+#    t.forward(100)
+#    t.right((360 / n) * 2)
+#    t.forward(100)
+#    t.left(360 / n)
+#    i = i + 1
+
+# turtle.done()
+
+# 도전문제 5.10
+# import random
+
+# tries =0
+# guess =0
+# answer =random.randint(1,100)
+# print("1부터 100 사이의 숫자를 맞추시오")
+# while guess !=answer :
+#     guess =int(input("숫자를 입력하시오: "))
+#     tries =tries +1
+
+#     if (guess <answer):
+#         print("낮음!")
+#     elif (guess>answer):
+#         print("높음!")
+#     if(tries>=10):
+
+#         break
+
+# if(tries>= 10):
+#     print("실패 총 시도 횟수 =",tries)
+# else :
+#     print("축하합니다. 총 시도횟수=",tries)
