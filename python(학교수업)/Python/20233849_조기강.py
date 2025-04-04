@@ -344,3 +344,40 @@
 #     print("실패 총 시도 횟수 =",tries)
 # else :
 #     print("축하합니다. 총 시도횟수=",tries)
+
+# 5.4 
+n = int(input(" 정수 입력 : "))
+
+f = 1
+
+for i in range(1,n+1):
+    f *= i
+
+print(f)
+
+#5.5 
+pw = ""
+while pw != "pythonisfun":
+    pw = input("암호 입력 : ")
+
+print("로그인 성공")
+
+#5.6
+n = int(input("원하는 단 :"))
+
+for i in range(1,10):
+    print("%i*%i=%i" % (n,i,n*i))
+
+    # 5.7
+    import turtle
+
+t = turtle.Turtle()
+t.shape("turtle")
+i=0
+while i < 5:
+    t.forward(100)  
+    t.left(144)
+    i+=1
+
+turtle.done()
+
