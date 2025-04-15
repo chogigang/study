@@ -68,8 +68,6 @@
 //    int n;
 //    a.pop(n);
 //    cout << "스택 a에서 팝한 값 " << n << endl;
-//
 //    b.pop(n);
 //    cout << "스택 b에서 팝한 값 " << n << endl;
-//
 //}

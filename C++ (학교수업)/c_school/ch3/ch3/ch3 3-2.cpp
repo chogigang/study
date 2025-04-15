@@ -1,7 +1,7 @@
-/*
- 날짜를 다루는 Date 클래스를 작성하고자 한다 Date를 이용하는ㄴ main()과 실행결과는 다음과 같다. 클래스 Date를 작성하여 아래 프로그램에 추가하라 
- */
-
+///*
+// 날짜를 다루는 Date 클래스를 작성하고자 한다 Date를 이용하는 main()과 실행결과는 다음과 같다. 클래스 Date를 작성하여 아래 프로그램에 추가하라
+// */
+//
 //#include <iostream>
 //#include <string>
 //#include <sstream>  // istringstream 사용을 위해 필요
@@ -83,6 +83,3 @@
 //
 //    
 //}
-//
-//
-//

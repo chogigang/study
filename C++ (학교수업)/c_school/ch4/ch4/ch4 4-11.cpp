@@ -1,3 +1,9 @@
+/*
+다음은 커피자판기로 작동하는 프로그램을 만들기 위해 필요한 두클래스이다.
+ 다음과 같이 실행되도록 main() 함수와 CoffeeVendinMachine, Container를 완성하라. 만일 커피 ,물,설탕 중 잔량이 하나라도 부족해 커피를 제공할 수 없는 경우 '원료가 부족합니다'를 출력하라.
+
+ */
+
 //#include <iostream>
 //#include <string>
 //#include <ctime>
@@ -115,7 +121,7 @@
 //    coffeeVendingMachine.run(); // 자판기 실행
 //    return 0;
 //}
-//
-//
-//
-//// 참조 https://4z7l.github.io/2020/07/19/myungpum-cpp-ch4.html
+
+
+
+// 참조 https://4z7l.github.io/2020/07/19/myungpum-cpp-ch4.html

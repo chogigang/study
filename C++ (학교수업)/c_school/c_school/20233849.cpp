@@ -1,42 +1,434 @@
-//Rec 클래스를 결과와 같이 작성해야한다 .
- // 목요일 수업활동일지
-// 4-14 예제
+// 5-8 , 5-10. 5-10
 
+//수업활동 일지 문제 270 4번 5번
+
+// 5-8
 #include <iostream>
-#include <string>
 using namespace std;
 
-int main(){
-    string s;
-    cout<<"7+23+5+100+25 와 같이 것셈 문자열을 입력하세요."<<endl;
-    getline(cin,s,'\n'); //문자열 입력받기
-    
-    int sum =0;
-    int startIndex =0;
-    while(1){
-        int fIndex =s.find('+',startIndex); //+찾기 문자열 비교용
-        if(fIndex == -1){ //+ 발견  못함
-            string part =s.substr(startIndex); // 숫자로 판단후 잘라서 part 변수에 넣어줌
-            if(part == "" ){ //반복중 공백이면 while문을 벗어남 2+3+  +로끝나는 경우
-                break;
-            }
-            cout<<part<<endl;
-            sum+=stoi(part);
-            break;
-        } //1번째 조건문
-        
-        int count = fIndex - startIndex; //+ 가 발견되었을 경우 +전까지 숫자 위치 인덱스를 계산
-        string part =s.substr(startIndex,count); //if 문 안에 있는 part와 구분 필요.   startIndex부터 count 개의 문자로 서버스트링 만듬
-                                                 //for문으로 순환하면 for(startIndex=n;startindx<cont;startIndex++) <<- 이런식 마지막 매개변수숫자는 자를때 포함시키지않는다
-        
-        cout<<part<<endl;
-        sum+=stoi(part);
-        startIndex = fIndex+1;
-    }
-    cout<<"숫자들의 합은 "<<sum<<endl;
-    
+char& find(char s[], int index){
+    return s[index];
 }
 
+int main(){
+    char name[] ="Mike";
+    cout<<name<<endl;
+    find(name,0)='5';
+    cout<< name<<endl;
+    
+    char& ref = find(name,2);
+    ref ='t';
+    cout<<name<<endl;
+    
+}
+//5-10
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class Person{
+private:
+    char* name;
+    int id;
+public:
+    person(int id, const char* )
+    
+};
+
+
+
+////객체 배열을 이용한 성적 프로그램
+//#include <iostream>
+//#include <string>
+//using namespace std;
+//
+//class Student{
+//private:
+//    string Name;
+//    string Number;
+//    double Korean;
+//    
+//public:
+//    void setDate(string name,string number,double korean);
+//    string getName(){return Name;}
+//    string getNumber(){return Number;}
+//    double getKorean(){return Korean;}
+//    
+//};
+//void Student::setDate(string name, string number, double korean){
+//    this->Name=name;
+//    this->Number=number;
+//    this->Korean=korean;
+//}
+//void input(Student *ps,double *avg,int count){
+//    int sum=0;
+//    for (int i=0;i<count;i++){
+//        string na;
+//        string nu;
+//        double kr;
+//        cout<<"이름,학번,성적입력: ";
+//        cin>>na>>nu>>kr;
+//        ps[i].setDate(na, nu, kr);
+//        sum+=kr;
+//    }
+//    *avg=sum/count;
+//}
+//
+////홍길동 김영숙 진수희
+//void output(Student *ps ,int count){
+//    cout<<"========================"<<endl;
+//    cout<<"학번.    이름.    국어성적. "<<endl;
+//    cout<<"========================"<<endl;
+//    double sum=0;
+//    for(int i=0;i<count;i++){
+//    cout<<ps[i].getNumber()<<"   "<<ps[i].getName()<<"   "<<ps[i].getKorean()<<endl;
+//    
+//    }
+//}
+//
+//int main(){
+//    int count =0;
+//    cout<<"입력할 학생수>>";
+//    double avg =0;
+//    cin>>count;
+//    Student *ps=new Student[count];
+//    input(ps,&avg,count);
+//    output(ps,count);
+//    cout<<"========================"<<endl;
+//    cout<<"국어평균   "<<avg<<endl;
+//}
+//
+//
+
+
+
+
+
+
+
+
+
+
+
+
+//Rec 클래스를 결과와 같이 작성해야한다 .
+ // 목요일 수업활동일지
+// 중간고사 실기 유형 예제
+// 동적할당 으로 입력 받는 사람 갯수 변경  ,검색 ,메니저 기능 확장 할수 있음
+//클래스 점수 몇점 함수 단위 몇점
+// 매니저 클래스 공부 필수 예제 살짝 변경했었음
+//#include <iostream>
+//#include <string>
+//using namespace std;
+//
+//class Student {
+//private:
+//    string Name;  // 성명
+//    string Number;   // 학번
+//    double Korean; // 국어 성적
+//
+//public:
+//    // Getter
+//    string getName() {
+//        return Name;
+//    }
+//    string getNumber() {
+//        return Number;
+//    }
+//    double getKorean() {
+//        return Korean;
+//    }
+//
+//    // Setter
+//    void setData(string name, string number, double korean);
+//};
+//
+//// 클래스 외부에서 정의한 setData 함수
+//void Student::setData(string name, string number, double korean) {
+//    this->Name = name;
+//    this->Number = number;
+//    this->Korean = korean;
+//}
+//
+//// 학생 데이터 입력 및 평균 계산
+//void input(Student* ps, double* avg) {
+//    double sum = 0;
+//    cout << "학년 성적 관리 프로그램" << endl;
+//
+//    for (int i = 0; i < 3; i++) {
+//        string n;
+//        string nb;
+//        double k;
+//
+//        cout <<" 학생의 이름, 학번, 성적 입력: ";
+//        cin >> n >> nb >> k;
+//
+//        ps[i].setData(n, nb, k);
+//        sum += k; //성적 합계 입력
+//    }
+//
+//    *avg = sum / 3.0;
+//}
+////홍길동,이영자,김민수
+//// 학생 정보 출력
+//void output(Student* p) {
+//    cout << "--------------------------------" << endl;
+//    cout << "학번\t이름\t국어성적" << endl;
+//    cout << "--------------------------------" << endl;
+// //   번호 이름 성적 출력
+//    for (int i = 0; i < 3; i++) {
+//        cout << p[i].getNumber() << "\t" << p[i].getName() << "\t" << p[i].getKorean() << endl;
+//    }
+//
+//    cout << "--------------------------------" << endl;
+//}
+//
+//int main() {
+//    Student ps[3]; //학생 4명 배열
+//    double avg = 0;
+//
+//    input(ps, &avg); //참조 변수avg
+//    output(ps);
+//
+//    cout << "국어 평균: " << avg << endl;
+//
+//}
+
+// 213p 9번
+//#include <iostream>
+//using namespace std;
+//class Sample{
+//    //클래스 서언
+//    int *p;
+//    int size;
+//public:
+//    Sample(int n){
+//        size=n;
+//        p=new int [n];// 동적할당
+//    }
+//    void read(); //입력값 받기
+//    void write(); // 정수 배열 출력
+//    int big(); //가장 큰수 출력
+//    ~Sample();
+//};
+//
+//void Sample::read(){
+//    for(int i=0;i<size;i++){
+//        cin>>p[i];
+//    }
+//}
+//void Sample::write(){
+//    for(int i=0;i<size;i++){
+//        cout<<p[i]<<" ";
+//    }
+//    cout<<endl;
+//}
+//int Sample::big(){
+//    int max =0;
+//    for(int i=0;i<size;i++){
+//        if(max<p[i]){
+//            max=p[i];
+//        }
+//    }
+//    return max;
+//    
+//}
+//Sample::~Sample(){
+//    delete []p;
+//}
+//
+//int main(){
+//    Sample s(10);
+//    s.read();
+//    s.write();
+//    cout<<"가장큰수는 "<<s.big()<<endl;
+//    
+//}
+
+// Rec 매니저 클래스 작성
+//#include <iostream>
+//using namespace std;
+//
+//class Rec {
+//private:
+//    double we;// 가로
+//    double he; //세로
+//
+//public:
+//    double getW();
+//    void setW(double w);
+//    double getH();
+//    void setH(double h);
+//    double area();
+//
+//};
+//
+//void Rec::setW(double w){
+//    this->we =w;
+//}
+//void Rec::setH(double h){
+//    this->he=h;
+//}
+//
+//double Rec::area(){
+//    return we*he;
+//}
+//
+//class RecManager{
+//private:
+//    Rec *pa;
+//    int size;
+//    double avg;
+//public:
+//    RecManager(int n){
+//        size=n;
+//        pa=new Rec[n];
+//    }
+//    void computer();
+//    void intput();
+//    void avgcount();
+//    
+//};
+//
+//void RecManager::avgcount(){
+//    int count=0;
+//    for(int i=0;i<size;i++){
+//        if(avg<=pa[i].area()){
+//            ++count;
+//        }
+//    }
+//    cout<<"넓이가 평균이상인 사각형은 "<<count<<" 개이다. "<<endl<<endl;
+//}
+//void RecManager::computer(){
+//    double sum=0;
+//    cout<<"넓이 >>";
+//    for(int i=0;i<size;i++){
+//        cout<<pa[i].area()<<" ";
+//        sum=sum+pa[i].area();
+//    }
+//    avg=sum/size;
+//    cout<<endl<<"평균>>"<<avg<<endl<<endl;
+//}
+//void RecManager::intput(){
+//    double w,h;
+//    for(int i=0;i<size;i++){
+//        cout<<"가로, 세로 입력: ";
+//        cin>>w>>h;
+//        (pa+i)->setH(h);
+//        (pa+i)->setW(w);
+//        
+//    }
+//    
+//}
+//int main(){
+//    int n=0,count=0;
+//    double w,h;
+//    cout<<"사각형의 갯수 입력: ";
+//    cin>>n;
+//    RecManager manager(n);
+//    manager.intput();
+//    manager.computer();
+//    manager.avgcount();
+//}
+
+//Rac 클래스 문제
+//#include <iostream>
+//using namespace std;
+//
+//class Rec {
+//private:
+//    double we;// 가로
+//    double he; //세로
+//    
+//public:
+//    double getW();
+//    void setW(double w);
+//    double getH();
+//    void setH(double h);
+//    double area();
+//    
+//};
+//
+//void Rec::setW(double w){
+//    this->we =w;
+//}
+//void Rec::setH(double h){
+//    this->he=h;
+//}
+//
+//double Rec::area(){
+//    return we*he;
+//}
+//int main(){
+//    int n=0,count=0;
+//    double w,h;
+//    cout<<"사각형의 갯수 입력: ";
+//    cin>>n;
+//    Rec *pa =new Rec[n];
+//    for(int i=0;i<n;i++){
+//        cout<<"가로 ,세로 입력: ";
+//        cin>> w>>h;
+//        (pa+i)->setH(h);
+//        (pa+i)->setW(w);
+//    }
+//    double sum=0;
+//    cout<<"넓이 >>";
+//    for(int i=0;i<n;i++){
+//        cout<<pa[i].area()<<" ";
+//        sum= sum+pa[i].area();
+//    }
+//    double avg =sum/ n;
+//    cout<<"평균 >>" <<avg<<endl<<endl;
+//    for(int i=0;i<n;i++){
+//        if(avg<=pa[i].area()){
+//            ++count;
+//        }
+//    }
+//    cout<<"넓이가 평균이상인 사각형은 "<<count<<" 개이다."<<endl<<endl;
+//    delete [] pa;
+//}
+
+//5-6
+//5-5
+//5-1
+
+
+// 4-14 예제
+//#include <iostream>
+//#include <string>
+//using namespace std;
+//
+//int main(){
+//    string s;
+//    cout<<"7+23+5+100+25 와 같이 것셈 문자열을 입력하세요."<<endl;
+//    getline(cin,s,'\n'); //문자열 입력받기
+//    
+//    int sum =0;
+//    int startIndex =0;
+//    while(1){
+//        int fIndex =s.find('+',startIndex); //+찾기 문자열 비교용
+//        if(fIndex == -1){ //+ 발견  못함
+//            string part =s.substr(startIndex); // 숫자로 판단후 잘라서 part 변수에 넣어줌
+//            if(part == "" ){ //반복중 공백이면 while문을 벗어남 2+3+  +로끝나는 경우
+//                break;
+//            }
+//            cout<<part<<endl;
+//            sum+=stoi(part);
+//            break;
+//        } //1번째 조건문
+//        
+//        int count = fIndex - startIndex; //+ 가 발견되었을 경우 +전까지 숫자 위치 인덱스를 계산
+//        string part =s.substr(startIndex,count); //if 문 안에 있는 part와 구분 필요.   startIndex부터 count 개의 문자로 서버스트링 만듬
+//                                                 //for문으로 순환하면 for(startIndex=n;startindx<cont;startIndex++) <<- 이런식 마지막 매개변수숫자는 자를때 포함시키지않는다
+//        
+//        cout<<part<<endl;
+//        sum+=stoi(part);
+//        startIndex = fIndex+1;
+//    }
+//    cout<<"숫자들의 합은 "<<sum<<endl;
+//    
+//}
+//
 
 //4-12 예제
 //#include<iostream>
